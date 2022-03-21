@@ -1,0 +1,3 @@
+﻿  Source.cpp
+F:\ETPA\Prog algo\ProjetJeu\Source.cpp(140,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  ProjetJeu.vcxproj -> F:\ETPA\Prog algo\ProjetJeu\x64\Debug\ProjetJeu.exe
