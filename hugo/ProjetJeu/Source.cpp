@@ -23,20 +23,28 @@ void showTab(vector<vector<int>> tab) {
             switch (tab[i][j])
             {
             case 0:
-                SetConsoleTextAttribute(console, 119);
+                SetConsoleTextAttribute(console, 119); //gris clair
                 cout << "XX";
                 break;
             case 1:
-                SetConsoleTextAttribute(console, 136);
+                SetConsoleTextAttribute(console, 136); // gris foncé
                 cout << "XX";
                 break;
             case 2:
-                SetConsoleTextAttribute(console, 204);
+                SetConsoleTextAttribute(console, 204); // rouge
                 cout << "XX";
                 break;
             case 3:
-                SetConsoleTextAttribute(console, 17);
+                SetConsoleTextAttribute(console, 17); // bleu
                 cout << "XX";
+                break;
+            case 40:
+                SetConsoleTextAttribute(console, 15); // noir futur gris clair
+                cout << "  ";
+                break;
+            case 41:
+                SetConsoleTextAttribute(console, 15); // noir futur gris foncé
+                cout << "  ";
                 break;
             default:
                 break;
@@ -46,7 +54,24 @@ void showTab(vector<vector<int>> tab) {
         cout << endl;
     }
 }
+void brouillard(vector<vector<int>>& tab, int& playerY, int& playerX) {
+    for (int i = -2; i < 3; i++) {
+        for (int j = -2; j < 3; j++) {
+            
+                if (tab[playerY + j][playerX + i] == 40) {
+                tab[playerY + j][playerX + i] = 0;
+                }
+                if (tab[playerY + j][playerX + i] == 41) {
+                tab[playerY + j][playerX + i] = 1;
+                }
+            
+        }
+    }
+}
 void move(vector<vector<int>>& tab, int& playerY, int& playerX) {
+    
+    brouillard(tab, playerY, playerX);
+
     int c, ex;
     c = _getch();
     if (c && c != 224)
@@ -57,28 +82,28 @@ void move(vector<vector<int>>& tab, int& playerY, int& playerX) {
         switch ((ex = _getch()))
         {
         case KEY_UP:
-            if (tab[playerY - 1][playerX] != 1) {
+            if (tab[playerY - 1][playerX] != 1  && tab[playerY - 1][playerX] !=41) {
                 tab[playerY][playerX] = 0;
                 playerY -= 1;
                 tab[playerY][playerX] = 2;
             }
             break;
         case KEY_DOWN:
-            if (tab[playerY + 1][playerX] != 1) {
+            if (tab[playerY + 1][playerX] != 1 && tab[playerY + 1][playerX] != 41) {
                 tab[playerY][playerX] = 0;
                 playerY += 1;
                 tab[playerY][playerX] = 2;
             }
             break;
         case KEY_RIGHT:
-            if (tab[playerY][playerX + 1] != 1) {
+            if (tab[playerY][playerX + 1] != 1 && tab[playerY][playerX + 1] != 41) {
                 tab[playerY][playerX] = 0;
                 playerX += 1;
                 tab[playerY][playerX] = 2;
             }
             break;
         case KEY_LEFT:
-            if (tab[playerY][playerX - 1] != 1) {
+            if (tab[playerY][playerX - 1] != 1 && tab[playerY][playerX - 1] != 41) {
                 tab[playerY][playerX] = 0;
                 playerX -= 1;
                 tab[playerY][playerX] = 2;
@@ -99,9 +124,7 @@ int main() {
     Personnage player(100);
     
     Morpion m1(56);
-    Morpion m2(56);
     vector<vector<int>> morpionTab = m1.tab(3, 3);
-    vector<vector<int>> morpion2Tab = m2.tab(5, 5);
     
     //taille tableau
     int tabX = 30;
@@ -114,63 +137,54 @@ int main() {
     for (int i = 0; i < tabY; i++) { 
         tab.push_back(vector<int>(tabX));
         for (int j = 0; j < tabX; j++) {
-            tab[i][j] = 0;
+            tab[i][j] = rand()%2 + 40;
             if (i == 0) {
                 tab[0][j] = 1; //premiere ligne
+            }
+            else if (i == 1) { // deuxieme ligne
+                tab[1][j] = 1;
             }
             else if (i == tabY-1) {
                 tab[tabY-1][j] = 1; // derniere ligne
             }
+            else if (i == tabY - 2) {
+                tab[tabY - 2][j] = 1; // avant derniere ligne
+            }
+            else if (j == tabX - 2) {
+                tab[i][tabX - 2] = 1; // deuxieme colonne de droite 
+            }
+            else if (j == 1) {
+                tab[i][1] = 1; // deuxieme colonne de gauche 
+            }
             tab[i][0] = 1; // colonne de gauche
-            tab[i][tabX-1] = 1; // colonne de droite
-            
+            tab[i][tabX-1] = 1; // colonne de droite 
         }
     }
    
+
+
     //position joueur
     int playerX = 5;
     int playerY = 5;
     tab[playerY][playerX] = 2;
 
-    //tableau de Personnage
-    vector<Personnage> team;
-    team.push_back(m1);
-    team.push_back(m2);
-
 
     //Events
-    vector <int> tabEvent;
-
-        //event1
-        int morpionX = playerX;
-        int morpionY = playerY+1;
-        tab[morpionY][morpionX] = 3;
-       //event2
-        int morpion2X = 6;
-        int morpion2Y = 6;
-        tab[morpion2Y][morpion2X] = 3;
-
-
-
+    int eventX = playerX;
+    int eventY = playerY+1;
+    tab[eventY][eventX] = 3;
+        
+    
     //Tours
     int tour = 10000;
     for (int i = 0; i < tour; i++) {
+        brouillard(tab, playerY, playerX);
         showTab(tab);
-
-        //Push_back
-        tabEvent.push_back(tab[morpionY][morpionX]);
-        tabEvent.push_back(tab[morpion2Y][morpion2X]);
-        
         cout << player;
-        for (int i = 0; i < tabEvent.size(); i++) {
-            if (tab[playerY][playerX] == tabEvent[i]) {
-               
-                m1.showMorpion(morpionTab);
-                
-                tabEvent[i] = 0;
-                morpionY = 0;
-                
-            }
+        if (tab[playerY][playerX] == tab[eventY][eventX]) {
+         m1.showMorpion(morpionTab);
+         cout << m1;
+         eventY = 0;
         }
         move(tab, playerY, playerX);
     }
