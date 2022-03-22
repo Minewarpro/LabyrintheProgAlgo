@@ -123,17 +123,14 @@ int main() {
     
     Personnage player(100);
     
+    //Déclaration Morpion
     Morpion m1(56);
-    vector<vector<int>> morpionTab = m1.tab(3, 3);
     
     //taille tableau
     int tabX = 30;
     int tabY = 30;
-    //***************//
-    // 
-    
-    
-    //creation tableau
+        
+    //Creation tableau
     for (int i = 0; i < tabY; i++) { 
         tab.push_back(vector<int>(tabX));
         for (int j = 0; j < tabX; j++) {
@@ -161,20 +158,16 @@ int main() {
         }
     }
    
-
-
-    //position joueur
+    //Position joueur
     int playerX = 5;
     int playerY = 5;
     tab[playerY][playerX] = 2;
-
 
     //Events
     int eventX = playerX;
     int eventY = playerY+1;
     tab[eventY][eventX] = 3;
-        
-    
+           
     //Tours
     int tour = 10000;
     for (int i = 0; i < tour; i++) {
@@ -182,7 +175,7 @@ int main() {
         showTab(tab);
         cout << player;
         if (tab[playerY][playerX] == tab[eventY][eventX]) {
-         m1.showMorpion(morpionTab);
+         m1.showMorpion(m1);
          cout << m1;
          eventY = 0;
         }

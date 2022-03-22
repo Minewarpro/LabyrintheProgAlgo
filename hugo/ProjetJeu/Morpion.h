@@ -8,7 +8,8 @@ public :
 	Morpion(int p);
 
 	vector<vector<int>> tab(int tabX, int tabY);
-	void showMorpion(vector<vector<int>>& tab);
+	void showMorpion(Morpion& m);
+
 
 	friend ostream& operator<<(ostream& os, Morpion const& m);
 };

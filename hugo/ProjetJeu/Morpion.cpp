@@ -23,8 +23,9 @@ vector<vector<int>> Morpion::tab(int tabX, int tabY)
     return tab;
 }
 
-void Morpion::showMorpion(vector<vector<int>>& tab)
+void Morpion::showMorpion(Morpion& m)
 {
+    vector<vector<int>> tab = m.tab(3, 3);
     system("cls");
     HANDLE console;
     console = GetStdHandle(STD_OUTPUT_HANDLE);
