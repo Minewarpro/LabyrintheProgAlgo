@@ -175,8 +175,9 @@ int main() {
         showTab(tab);
         cout << player;
         if (tab[playerY][playerX] == tab[eventY][eventX]) {
-         m1.showMorpion(m1);
          cout << m1;
+         m1.playMorpion(player);
+         cout << player;
          eventY = 0;
         }
         move(tab, playerY, playerX);
