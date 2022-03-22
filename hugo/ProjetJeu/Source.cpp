@@ -99,7 +99,9 @@ int main() {
     Personnage player(100);
     
     Morpion m1(56);
+    Morpion m2(56);
     vector<vector<int>> morpionTab = m1.tab(3, 3);
+    vector<vector<int>> morpion2Tab = m2.tab(5, 5);
     
     //taille tableau
     int tabX = 30;
@@ -112,7 +114,7 @@ int main() {
     for (int i = 0; i < tabY; i++) { 
         tab.push_back(vector<int>(tabX));
         for (int j = 0; j < tabX; j++) {
-            tab[i][j] = rand()%2;
+            tab[i][j] = 0;
             if (i == 0) {
                 tab[0][j] = 1; //premiere ligne
             }
@@ -124,30 +126,51 @@ int main() {
             
         }
     }
-
+   
     //position joueur
     int playerX = 5;
     int playerY = 5;
     tab[playerY][playerX] = 2;
 
+    //tableau de Personnage
+    vector<Personnage> team;
+    team.push_back(m1);
+    team.push_back(m2);
+
 
     //Events
-    vector<vector<int>> tabEvent;
+    vector <int> tabEvent;
 
-    int eventX = playerX;
-    int eventY = playerY+1;
-    tab[eventY][eventX] = 3;
-        
-    
+        //event1
+        int morpionX = playerX;
+        int morpionY = playerY+1;
+        tab[morpionY][morpionX] = 3;
+       //event2
+        int morpion2X = 6;
+        int morpion2Y = 6;
+        tab[morpion2Y][morpion2X] = 3;
+
+
+
     //Tours
     int tour = 10000;
     for (int i = 0; i < tour; i++) {
         showTab(tab);
+
+        //Push_back
+        tabEvent.push_back(tab[morpionY][morpionX]);
+        tabEvent.push_back(tab[morpion2Y][morpion2X]);
+        
         cout << player;
-        if (tab[playerY][playerX] == tab[eventY][eventX]) {
-         m1.showMorpion(morpionTab);
-         cout << m1;
-         eventY = 0;
+        for (int i = 0; i < tabEvent.size(); i++) {
+            if (tab[playerY][playerX] == tabEvent[i]) {
+               
+                m1.showMorpion(morpionTab);
+                
+                tabEvent[i] = 0;
+                morpionY = 0;
+                
+            }
         }
         move(tab, playerY, playerX);
     }
