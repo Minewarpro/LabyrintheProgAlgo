@@ -1,11 +1,4 @@
-﻿#include <iostream>
-#include <windows.h>
-#include <time.h>
-#include <vector>
-#include <stdio.h>
-#include <conio.h>
-
-using namespace std;
+﻿#include "Morpion.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -42,7 +35,7 @@ void showTab(vector<vector<int>> tab) {
                 cout << "XX";
                 break;
             case 3:
-                SetConsoleTextAttribute(console, 15);
+                SetConsoleTextAttribute(console, 17);
                 cout << "XX";
                 break;
             default:
@@ -54,42 +47,6 @@ void showTab(vector<vector<int>> tab) {
     }
 }
 void move(vector<vector<int>>& tab, int& playerY, int& playerX) {
-    int in;
-    cin >> in;
-    switch (in)
-    {
-    case 1:
-        if (tab[playerY - 1][playerX] != 1) {
-            tab[playerY][playerX] = 0;
-            playerY -= 1;
-            tab[playerY][playerX] = 2;
-        }
-        break;
-    case 2:
-        if (tab[playerY + 1][playerX] != 1) {
-            tab[playerY][playerX] = 0;
-            playerY += 1;
-            tab[playerY][playerX] = 2;
-        }
-        break;
-    case 3:
-        if (tab[playerY][playerX + 1] != 1) {
-            tab[playerY][playerX] = 0;
-            playerX+= 1;
-            tab[playerY][playerX] = 2;
-        }
-        break;
-    case 4:
-        if (tab[playerY][playerX - 1] != 1) {
-            tab[playerY][playerX] = 0;
-            playerX -= 1;
-            tab[playerY][playerX] = 2;
-        }
-        break;
-    }
-    
-}
-void moveArrow(vector<vector<int>>& tab, int& playerY, int& playerX) {
     int c, ex;
     c = _getch();
     if (c && c != 224)
@@ -132,18 +89,23 @@ void moveArrow(vector<vector<int>>& tab, int& playerY, int& playerX) {
             break;
         }
     }
-   
+    
 }
 int main() {
     
     srand(time(NULL));
     vector<vector<int>> tab;
     
+    Personnage player(100);
+    
+    Morpion m1(56);
+    vector<vector<int>> morpionTab = m1.tab(3, 3);
     
     //taille tableau
     int tabX = 30;
     int tabY = 30;
     //***************//
+    // 
     
     
     //creation tableau
@@ -159,6 +121,7 @@ int main() {
             }
             tab[i][0] = 1; // colonne de gauche
             tab[i][tabX-1] = 1; // colonne de droite
+            
         }
     }
 
@@ -166,19 +129,30 @@ int main() {
     int playerX = 5;
     int playerY = 5;
     tab[playerY][playerX] = 2;
-    
+
+
+    //Events
+    vector<vector<int>> tabEvent;
+
+    int eventX = playerX;
+    int eventY = playerY+1;
+    tab[eventY][eventX] = 3;
+        
     
     //Tours
-    int tour = 10;
-    showTab(tab);
+    int tour = 10000;
     for (int i = 0; i < tour; i++) {
-        moveArrow(tab, playerY, playerX);
-            showTab(tab);
+        showTab(tab);
+        cout << player;
+        if (tab[playerY][playerX] == tab[eventY][eventX]) {
+         m1.showMorpion(morpionTab);
+         cout << m1;
+         eventY = 0;
+        }
+        move(tab, playerY, playerX);
     }
     
-
     //showColor();
-    
     
     return 0;
 }
