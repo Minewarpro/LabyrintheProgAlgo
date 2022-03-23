@@ -23,11 +23,11 @@ void Personnage::setPoints(int p)
 void Personnage::attack(Personnage& ennemy)
 {
 	ennemy.setPoints(ennemy.getPoints() - getPoints());
-	cout << "Il ne vous reste plus que " << getPoints() << endl << endl;
+	cout << "vous avez perdu " << getPoints() << " de vie" << endl;
 }
 
 ostream& operator<<(ostream& os, Personnage const& p)
 {
-	os << "Vous avez " << p.getPoints() << " points" << endl << endl;
+	os << "Vous avez " << p.getPoints() << " points de vie" << endl << endl;
 	return os;
 }

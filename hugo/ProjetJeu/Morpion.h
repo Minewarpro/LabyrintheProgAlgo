@@ -7,9 +7,10 @@ public :
 	Morpion();
 	Morpion(int p);
 
-	vector<vector<int>> tab(int tabX, int tabY);
-	void showMorpion(Morpion& m);
-
+	vector<vector<int>> tabMorpion(int tabX, int tabY);
+	void showMorpion(vector<vector<int>>& tab);
+	void playMorpion(Personnage& p);
+	int testWin(vector<vector<int>>& tab);
 
 	friend ostream& operator<<(ostream& os, Morpion const& m);
 };

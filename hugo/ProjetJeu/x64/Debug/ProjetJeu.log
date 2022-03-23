@@ -1,4 +1,6 @@
 ﻿  Morpion.cpp
+F:\ETPA\Prog algo\ProjetJeu\Morpion.cpp(159,29): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+  Personnage.cpp
   Source.cpp
 F:\ETPA\Prog algo\ProjetJeu\Source.cpp(121,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
   Génération de code en cours...
