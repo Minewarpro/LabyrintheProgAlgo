@@ -1,0 +1,13 @@
+﻿  JustePrix.cpp
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(6,1): error C2504: 'Personnage' : classe de base non définie
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(11,8): error C2143: erreur de syntaxe : absence de ';' avant '<'
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(11,8): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(11,54): error C2238: jetons inattendus avant ';'
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(12,21): error C2061: erreur de syntaxe : identificateur 'vector'
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(13,21): error C2061: erreur de syntaxe : identificateur 'Personnage'
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(14,14): error C2061: erreur de syntaxe : identificateur 'vector'
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(16,16): error C2143: erreur de syntaxe : absence de ';' avant '&'
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(16,16): error C2433: 'ostream' : 'friend' non autorisé sur les déclarations de données
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(16,16): error C4430: spécificateur de type manquant - int est pris en compte par défaut. Remarque : C++ ne prend pas en charge int par défaut
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.h(16,55): error C2238: jetons inattendus avant ';'
+C:\Users\naomi\source\repos\JustePrix\JustePrix\JustePrix.cpp(7,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
