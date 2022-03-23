@@ -6,13 +6,13 @@ Morpion::Morpion()
 
 Morpion::Morpion(int p)
 {
-	setPoints(p);
+    setPoints(p);
 }
 
 vector<vector<int>> Morpion::tabMorpion(int tabX, int tabY)
 {
     vector<vector<int>> tab;
-    
+
 
     for (int i = 0; i < tabY; i++) {
         tab.push_back(vector<int>(tabX));
@@ -51,7 +51,7 @@ void Morpion::showMorpion(vector<vector<int>>& tab)
 
 int Morpion::testWin(vector<vector<int>>& tab)
 {
-    
+
     if (tab[0][0] == 1 && tab[0][1] == 1 && tab[0][2] == 1) {
         return 1;
     }
@@ -70,7 +70,7 @@ int Morpion::testWin(vector<vector<int>>& tab)
     else if (tab[0][2] == 1 && tab[1][2] == 1 && tab[2][2] == 1) {
         return 1;
     }
-    else if (tab[0][0] == 1 && tab[1][1] == 1 && tab[2][2] == 1) { 
+    else if (tab[0][0] == 1 && tab[1][1] == 1 && tab[2][2] == 1) {
         return 1;
     }
     else if (tab[0][2] == 1 && tab[1][1] == 1 && tab[2][0] == 1) {
@@ -84,22 +84,22 @@ int Morpion::testWin(vector<vector<int>>& tab)
     else if (tab[1][0] == 2 && tab[1][1] == 2 && tab[1][2] == 2) {
         return 2;
     }
-    else if (tab[2][0] == 2 && tab[2][1] == 2 && tab[2][2] == 2) {    
+    else if (tab[2][0] == 2 && tab[2][1] == 2 && tab[2][2] == 2) {
         return 2;
     }
-    else if (tab[0][0] == 2 && tab[1][0] == 2 && tab[2][0] == 2) {     
+    else if (tab[0][0] == 2 && tab[1][0] == 2 && tab[2][0] == 2) {
         return 2;
     }
-    else if (tab[0][1] == 2 && tab[1][1] == 2 && tab[2][1] == 2) {    
+    else if (tab[0][1] == 2 && tab[1][1] == 2 && tab[2][1] == 2) {
         return 2;
     }
-    else if (tab[0][2] == 2 && tab[1][2] == 2&& tab[2][2] == 2) {    
+    else if (tab[0][2] == 2 && tab[1][2] == 2 && tab[2][2] == 2) {
         return 1;
     }
-    else if (tab[0][0] == 2 && tab[1][1] == 2 && tab[2][2] == 2) {   
+    else if (tab[0][0] == 2 && tab[1][1] == 2 && tab[2][2] == 2) {
         return 2;
     }
-    else if (tab[0][2] == 2 && tab[1][1] == 2&& tab[2][0] == 2) {     
+    else if (tab[0][2] == 2 && tab[1][1] == 2 && tab[2][0] == 2) {
         return 2;
     }
 
@@ -109,15 +109,15 @@ int Morpion::testWin(vector<vector<int>>& tab)
 }
 
 void Morpion::playMorpion(Personnage& p)
-{   
+{
     vector<vector<int>> tab = tabMorpion(3, 3);
     int ligne, colonne;
     int tourRestant = 9;
     showMorpion(tab);
 
-    while (testWin(tab) == 0 && tourRestant!=0) {
+    while (testWin(tab) == 0 && tourRestant != 0) {
         int juste = false;
-        
+
         cout << "Quelle ligne ?" << endl;
         cin >> ligne;
         cout << "Quelle colonne ?" << endl;
@@ -128,10 +128,10 @@ void Morpion::playMorpion(Personnage& p)
             cout << "Quelle ligne ?" << endl;
             cin >> ligne;
             cout << "Quelle colonne ?" << endl;
-            cin >> colonne;   
+            cin >> colonne;
         }
         while (tab[ligne - 1][colonne - 1] != 0) {
-            
+
             showMorpion(tab);
             cout << "Vous ne pouvez pas poser un pion sur une case deja utilise" << endl;
             cout << "Quelle ligne ?" << endl;
@@ -152,7 +152,7 @@ void Morpion::playMorpion(Personnage& p)
         showMorpion(tab);
         testWin(tab);
         tourRestant -= 1;
-                
+
         if (tourRestant != 0) {
             int randY = rand() % 3;
             int randX = rand() % 3;
@@ -178,9 +178,9 @@ void Morpion::playMorpion(Personnage& p)
 
 
 
-ostream& operator<<(ostream& os, Morpion const& m)
+ostream& operator<<(ostream& os, Morpion& m)
 {
-	os << "Le Morpion a " << m.getPoints() << " points" << endl << endl;
-    
-	return os;
+    os << "Le Morpion a " << m.getPoints() << " points" << endl << endl;
+
+    return os;
 }

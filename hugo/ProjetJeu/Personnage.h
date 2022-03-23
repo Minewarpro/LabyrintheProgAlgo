@@ -12,19 +12,28 @@ class Personnage
 {
 protected:
 	int points;
-	
+	int x;
+	int y;
+
 public:
 	//Constructeurs
 	Personnage();
-	Personnage(int p);
+	Personnage(int p, int x, int y);
+
 
 	// Getteurs  Setteurs
-	int getPoints() const;
+	int getPoints();
 	void setPoints(int p);
+
+	int getX();
+	void setX(int x1);
+
+	int getY();
+	void setY(int y1);
 
 	//Methods Gameplay
 	void attack(Personnage& ennemy);
 
-	friend ostream& operator<<(ostream& os, Personnage const& p);
+	friend ostream& operator<<(ostream& os, Personnage& p);
 };
 
