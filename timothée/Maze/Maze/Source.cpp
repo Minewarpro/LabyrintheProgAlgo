@@ -38,6 +38,7 @@ int main(){
     vector <int> wall;
     vector <int> line;
     vector <vector<int>> maze;
+    int test = 0;
 
     int nb = 0;
     int maze_size = 21;
@@ -78,11 +79,11 @@ int main(){
     maze[1][0] = 1;
     maze[maze_size - 2][maze_size - 1] = nb;
 
-    showTab(maze);
+   
 
     
 
-   /* while (true) {
+   while (true) {
 
         srand(time(NULL));
 
@@ -119,10 +120,13 @@ int main(){
                 }
             }
         }
-        showTab(maze);
-    }*/
 
- 
+        showTab(maze);
+        
+    }
+
+   showTab(maze);
+ cout << test;
 
     return 0;
 }
