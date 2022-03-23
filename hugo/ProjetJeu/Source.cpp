@@ -1,4 +1,5 @@
 ﻿#include "Morpion.h"
+#include "TicTac.h"
 
 
 #define KEY_UP 72
@@ -124,8 +125,11 @@ int main() {
 
     //Déclaration Morpion
     Morpion m1(56);
-    
 
+
+    TicTac t1(10);
+    
+    t1.playTictac(player);
 
     //taille tableau
     int tabX = 30;
@@ -166,7 +170,9 @@ int main() {
     int eventY = player.getY() + 1;
     tab[eventY][eventX] = 3;
 
+    
 
+    /*
     //Tours
     tab[player.getY()][player.getX()] = 0; // ne pas touchew
     int tour = 10000;
@@ -192,6 +198,6 @@ int main() {
     }
 
     //showColor();
-    
+    */
     return 0;
 }
