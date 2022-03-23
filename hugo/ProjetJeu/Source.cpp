@@ -126,11 +126,8 @@ int main() {
     //Déclaration Morpion
     Morpion m1(56);
 
-
     TicTac t1(10);
-    
-    t1.playTictac(player);
-
+        
     //taille tableau
     int tabX = 30;
     int tabY = 30;
@@ -172,7 +169,7 @@ int main() {
 
     
 
-    /*
+    
     //Tours
     tab[player.getY()][player.getX()] = 0; // ne pas touchew
     int tour = 10000;
@@ -189,7 +186,8 @@ int main() {
             cout << m1;
             }
             else if (aleaMiniJeu == 1) { // mettre un mini jeu -> mettre un 'else if' en plus par mini jeu different
-                cout << "pas de mini jeu" << endl;
+                t1.playTictac(player);
+                cout << t1;
             } 
             cout << player;
             tab[player.getY()][player.getX()] = 0;
@@ -198,6 +196,6 @@ int main() {
     }
 
     //showColor();
-    */
+    
     return 0;
 }
