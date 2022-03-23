@@ -22,7 +22,7 @@ void JustePrix::playJustePrix(Personnage& p)
 
 
 
-	while (guess != random);
+	while (guess != random)
 	{
 		moves++;
 		cout << "Enter your guess : ";

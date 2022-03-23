@@ -3,8 +3,10 @@
     "",
     "\\hugo",
     "\\hugo\\ProjetJeu",
+    "\\Nao",
+    "\\Nao\\JustePrix",
     "\\Nao\\JustePrix\\JustePrix"
   ],
-  "SelectedNode": "\\Nao",
+  "SelectedNode": "\\hugo\\ProjetJeu\\Morpion.h",
   "PreviewInSolutionExplorer": false
 }
