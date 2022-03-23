@@ -6,47 +6,32 @@
 using namespace std;
 
 void showTab(vector<vector<int>> maze) {
-    // system("cls");
+    system("cls");
     HANDLE console;
     console = GetStdHandle(STD_OUTPUT_HANDLE);
     for (int i = 0; i < maze.size(); i++) {
         for (int j = 0; j < maze[i].size(); j++) {
             switch (maze[i][j])
             {
-            case 0:
+            case -1:
                 SetConsoleTextAttribute(console, 119); //gris clair
                 cout << "XX";
                 break;
             case 1:
-                SetConsoleTextAttribute(console, 204); // rouge
-                cout << "XX";
-                break;
-            case 2:
-                SetConsoleTextAttribute(console, 204); // rouge
-                cout << "XX";
-                break;
-            case 3:
                 SetConsoleTextAttribute(console, 17); // bleu
                 cout << "XX";
                 break;
-            case 40:
-                SetConsoleTextAttribute(console, 15); // noir futur gris clair
-                cout << "  ";
-                break;
-            case 41:
-                SetConsoleTextAttribute(console, 15); // noir futur gris foncé
-                cout << "  ";
-                break;
             default:
-                SetConsoleTextAttribute(console, 119); //gris clair
+                
+                SetConsoleTextAttribute(console, 17); // bleu
                 cout << "XX";
-                break;
                 break;
             }
         }
         SetConsoleTextAttribute(console, 15);
         cout << endl;
     }
+    Sleep(0);
 }
 
 int main(){
@@ -55,7 +40,7 @@ int main(){
     vector <vector<int>> maze;
 
     int nb = 0;
-    int maze_size = 20;
+    int maze_size = 21;
 
     for (int i = 0; i < maze_size; i++) {
         wall.push_back(-1);
@@ -93,9 +78,13 @@ int main(){
     maze[1][0] = 1;
     maze[maze_size - 2][maze_size - 1] = nb;
 
+    showTab(maze);
+
     
 
-    while (true) {
+   /* while (true) {
+
+        srand(time(NULL));
 
         int x = rand() % (maze_size - 2) + 1;
         int y;
@@ -131,7 +120,7 @@ int main(){
             }
         }
         showTab(maze);
-    }
+    }*/
 
  
 
