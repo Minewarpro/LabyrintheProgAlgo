@@ -31,7 +31,7 @@ void showTab(vector<vector<int>> maze) {
         SetConsoleTextAttribute(console, 15);
         cout << endl;
     }
-    Sleep(0);
+    Sleep(100); 
 }
 
 int main(){
@@ -40,8 +40,10 @@ int main(){
     vector <vector<int>> maze;
     int test = 0;
 
-    int nb = 0;
+    int nb = 2;
     int maze_size = 21;
+
+    srand(time(NULL));
 
     for (int i = 0; i < maze_size; i++) {
         wall.push_back(-1);
@@ -83,9 +85,9 @@ int main(){
 
     
 
-   while (true) {
+   while (maze[21 - 2][21 - 2] != maze[1][1]) {
 
-        srand(time(NULL));
+        
 
         int x = rand() % (maze_size - 2) + 1;
         int y;
@@ -125,8 +127,22 @@ int main(){
         
     }
 
-   showTab(maze);
- cout << test;
+   for (int i = 0; i < maze_size; i++) {
+       int x = rand() % (maze_size - 2) + 1;
+       int y;
+
+       if (x % 2 == 0) {
+           y = ((rand() % ((maze_size - 1) / 2))) * 2 + 1;
+       }
+       else {
+           y = ((rand() % ((maze_size - 2) / 2))) * 2 + 2;
+       }
+       maze[x][y] = 0;
+       showTab(maze);
+   }
+
+        showTab(maze);
+        cout << "fini";
 
     return 0;
 }
