@@ -5,6 +5,10 @@
 #include <vector>
 #include <stdio.h>
 #include <conio.h>
+#include <chrono>
+#include <fstream>
+#include<stdlib.h>
+#include<string>
 
 
 using namespace std;
