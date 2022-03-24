@@ -97,7 +97,21 @@ void showMaze(vector<vector<int>> tab) {
         cout << endl;
     }
 }
-
+void win(vector<vector<int>> tab, Personnage& player){
+    
+    if (player.getPoints() <= 0) {
+        system("cls");
+        HANDLE console;
+        console = GetStdHandle(STD_OUTPUT_HANDLE);
+        cout << "Vous avez perdu !";
+    }
+    if (tab[player.getY()][player.getX()] == 4) {
+        system("cls");
+        HANDLE console;
+        console = GetStdHandle(STD_OUTPUT_HANDLE);
+        cout << "Vous avez reussi a sortir du labyrinthe !";
+    }
+}
 void brouillard(vector<vector<int>>& tab, Personnage& p, int maze_size) {
     bool b = false;
     if (p.getY() > 1 && p.getY() < maze_size - 2 && p.getX() > 1 && p.getX() < maze_size - 2) {
@@ -387,12 +401,7 @@ int main() {
             cout << player;
             tab[player.getY()][player.getX()] = 0;
         }
-        if (tab[player.getY()][player.getX()] == 4) {
-            system("cls");
-            HANDLE console;
-            console = GetStdHandle(STD_OUTPUT_HANDLE);
-            cout << "Vous avez reussi a sortir du labyrinthe !";
-        }
+        win(tab, player);
         move(tab, player, maze_size);
     }
 
