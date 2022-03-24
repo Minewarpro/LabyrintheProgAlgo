@@ -142,6 +142,7 @@
     <ClCompile Include="JustePrix.cpp" />
     <ClCompile Include="Morpion.cpp" />
     <ClCompile Include="Personnage.cpp" />
+    <ClCompile Include="Remember.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TicTac.cpp" />
   </ItemGroup>
@@ -149,6 +150,7 @@
     <ClInclude Include="JustePrix.h" />
     <ClInclude Include="Morpion.h" />
     <ClInclude Include="Personnage.h" />
+    <ClInclude Include="Remember.h" />
     <ClInclude Include="TicTac.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

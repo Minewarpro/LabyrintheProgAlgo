@@ -1,3 +1,4 @@
 ﻿  Source.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Source.cpp(216,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Remember.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Source.cpp(201,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
   ProjetJeu.vcxproj -> D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\x64\Debug\ProjetJeu.exe

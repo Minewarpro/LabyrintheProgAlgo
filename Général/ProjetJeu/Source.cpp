@@ -1,7 +1,7 @@
 ﻿#include "Morpion.h"
 #include "TicTac.h"
 #include "JustePrix.h"
-
+#include "Remember.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -95,21 +95,6 @@ void showMaze(vector<vector<int>> tab) {
         }
         SetConsoleTextAttribute(console, 15);
         cout << endl;
-    }
-}
-void win(vector<vector<int>> tab, Personnage& player){
-    
-    if (player.getPoints() <= 0) {
-        system("cls");
-        HANDLE console;
-        console = GetStdHandle(STD_OUTPUT_HANDLE);
-        cout << "Vous avez perdu !";
-    }
-    if (tab[player.getY()][player.getX()] == 4) {
-        system("cls");
-        HANDLE console;
-        console = GetStdHandle(STD_OUTPUT_HANDLE);
-        cout << "Vous avez reussi a sortir du labyrinthe !";
     }
 }
 void brouillard(vector<vector<int>>& tab, Personnage& p, int maze_size) {
@@ -227,6 +212,8 @@ int main() {
     Morpion m1(56);
     TicTac t1(10);
     JustePrix j1(25);
+    Remember r1(10);
+
 
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
@@ -378,31 +365,44 @@ int main() {
     //Tours
     tab[player.getY()][player.getX()] = 0; // ne pas touchew
     int tour = 10000;
-    for (int i = 0; i < tour; i++) {
+    while (player.getPoints() > 0 && tab[player.getY()][player.getX()] != 4) {
         brouillard(tab, player, maze_size);
         showTab(tab, player);
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
 
-            int aleaMiniJeu = rand() % 3;
-            if (aleaMiniJeu == 0) {
+            int aleaMiniJeu = rand() % 4;
+            if (aleaMiniJeu == 0) { //Morpion
                 Morpion m;
                 m.playMorpion(player);
-                cout << m1;
             }
-            else if (aleaMiniJeu == 1) { 
+            else if (aleaMiniJeu == 1) {  // TicTac
                 t1.playTictac(player);
-                cout << t1;
             }
-            else if (aleaMiniJeu == 2) { 
+            else if (aleaMiniJeu == 2) { // JustePrix
                 j1.playJustePrix(player);
-                cout << t1;
+            }
+            else if (aleaMiniJeu == 3) { // Remember
+                r1.playRemember(player);
             }
             cout << player;
             tab[player.getY()][player.getX()] = 0;
         }
-        win(tab, player);
         move(tab, player, maze_size);
+    }
+
+    // Vérifie si l'on est sortie du labyrinthe et si l'on a encore de le vie
+    if (player.getPoints() <= 0) {
+        system("cls");
+        HANDLE console;
+        console = GetStdHandle(STD_OUTPUT_HANDLE);
+        cout << "Vous avez perdu !";
+    }
+    if (tab[player.getY()][player.getX()] == 4) {
+        system("cls");
+        HANDLE console;
+        console = GetStdHandle(STD_OUTPUT_HANDLE);
+        cout << "Vous avez reussi a sortir du labyrinthe !";
     }
 
     //showColor();

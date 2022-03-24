@@ -41,6 +41,7 @@ void TicTac::playTictac(Personnage& p)
 		system("cls");
 		HANDLE console;
 		console = GetStdHandle(STD_OUTPUT_HANDLE);
+		cout << "   TicTac" << endl;
 		cout << "-----------------" << endl;
 		cout << "Vous aurez : " << secondsMax << " secondes pour ecrire le mot affiche" << endl;
 		cout << "-----------------" << endl;
