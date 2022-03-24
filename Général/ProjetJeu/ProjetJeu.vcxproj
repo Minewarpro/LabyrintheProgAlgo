@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="JustePrix.cpp" />
     <ClCompile Include="Morpion.cpp" />
+    <ClCompile Include="Pendu.cpp" />
     <ClCompile Include="Personnage.cpp" />
     <ClCompile Include="Remember.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -149,6 +150,7 @@
   <ItemGroup>
     <ClInclude Include="JustePrix.h" />
     <ClInclude Include="Morpion.h" />
+    <ClInclude Include="Pendu.h" />
     <ClInclude Include="Personnage.h" />
     <ClInclude Include="Remember.h" />
     <ClInclude Include="TicTac.h" />

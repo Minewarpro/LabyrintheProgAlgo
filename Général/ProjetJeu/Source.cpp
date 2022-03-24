@@ -2,6 +2,7 @@
 #include "TicTac.h"
 #include "JustePrix.h"
 #include "Remember.h"
+#include "Pendu.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -209,12 +210,14 @@ int main() {
     Personnage player(100, 1, 1);
 
     //Déclaration Events
-    Morpion m1(56);
-    TicTac t1(10);
-    JustePrix j1(25);
-    Remember r1(10);
+    Morpion m1(40);
+    TicTac t1(20);
+    JustePrix j1(35);
+    Remember r1(35);
+    Pendu p1(20);
 
 
+    
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
         wall.push_back(-1);
@@ -371,7 +374,7 @@ int main() {
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
 
-            int aleaMiniJeu = rand() % 4;
+            int aleaMiniJeu = rand() % 5;
             if (aleaMiniJeu == 0) { //Morpion
                 Morpion m;
                 m.playMorpion(player);
@@ -384,6 +387,9 @@ int main() {
             }
             else if (aleaMiniJeu == 3) { // Remember
                 r1.playRemember(player);
+            }
+            else if (aleaMiniJeu == 4) { // Remember
+                p1.playPendu(player);
             }
             cout << player;
             tab[player.getY()][player.getX()] = 0;
