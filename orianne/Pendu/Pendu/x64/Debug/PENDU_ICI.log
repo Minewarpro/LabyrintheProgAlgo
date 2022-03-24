@@ -1,0 +1,12 @@
+﻿  JustePrix.cpp
+C:\Users\lixyg\source\repos\PENDU_ICI\PENDU_ICI\JustePrix.cpp(17,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Morpion.cpp
+C:\Users\lixyg\source\repos\PENDU_ICI\PENDU_ICI\Morpion.h(1,1): fatal error C1021: commande de préprocesseur non valide 'pr'
+  Pendu.cpp
+C:\Users\lixyg\source\repos\PENDU_ICI\PENDU_ICI\Pendu.cpp(195,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Source.cpp
+C:\Users\lixyg\source\repos\PENDU_ICI\PENDU_ICI\Morpion.h(1,1): fatal error C1021: commande de préprocesseur non valide 'pr'
+  TicTac.cpp
+C:\Users\lixyg\source\repos\PENDU_ICI\PENDU_ICI\TicTac.cpp(25,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Génération de code en cours...
+C:\Users\lixyg\source\repos\PENDU_ICI\PENDU_ICI\Pendu.cpp(254): error C4716: 'Pendu::testWin' : doit retourner une valeur

@@ -1,12 +1,17 @@
 {
   "ExpandedNodes": [
     "",
-    "\\hugo",
-    "\\hugo\\ProjetJeu",
     "\\Nao",
     "\\Nao\\JustePrix",
-    "\\Nao\\JustePrix\\JustePrix"
+    "\\Nao\\JustePrix\\JustePrix",
+    "\\Nao\\JustePrix\\JustePrix\\Debug",
+    "\\orianne",
+    "\\orianne\\Pendu",
+    "\\orianne\\Pendu\\Pendu",
+    "\\orianne\\Pendu\\x64\\Debug",
+    "\\timothée",
+    "\\timothée\\Maze"
   ],
-  "SelectedNode": "\\hugo\\ProjetJeu\\Morpion.h",
+  "SelectedNode": "\\timothée\\ProjetJeu",
   "PreviewInSolutionExplorer": false
 }
