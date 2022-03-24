@@ -5,7 +5,7 @@
 
 using namespace std;
 // Fonction pour afficher des cases a notre tableau a la place de valeur
-void showTab(vector<vector<int>> maze) {
+void showMaze(vector<vector<int>> maze) {
     system("cls");
     HANDLE console;
     console = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -14,16 +14,11 @@ void showTab(vector<vector<int>> maze) {
             switch (maze[i][j])
             {
             case -1:
-                SetConsoleTextAttribute(console, 119); //gris clair
-                cout << "XX";
-                break;
-            case 1:
-                SetConsoleTextAttribute(console, 17); // bleu
+                SetConsoleTextAttribute(console, 136); // gris foncé
                 cout << "XX";
                 break;
             default:
-                
-                SetConsoleTextAttribute(console, 17); // bleu
+                SetConsoleTextAttribute(console, 119); // gris clair
                 cout << "XX";
                 break;
             }
@@ -139,27 +134,41 @@ int main(){
         }
 
         // on montre notre tableau grace a la fonction pour faire au file des boucle une sorte d'animation de création de labyrinthe mais aussi pour pouvoir débug
-        showTab(maze);
+        showMaze(maze);
         
     }
 
-   // pour faire un labyrinthe plus complex (pas avec un seul chemin possible pour le finir on casse quelque mur au asad
-   for (int i = 0; i < maze_size; i++) {
-       int x = rand() % (maze_size - 2) + 1;
-       int y;
+   
+   for (int i = 0; i < maze_size ; i ++) {
+       for (int j = 1; j < maze_size - 1; j ++) {
 
-       if (x % 2 == 0) {
-           y = ((rand() % ((maze_size - 1) / 2))) * 2 + 1;
+           // Si la position ou je me trouve a la même valeur que la cellulle 2
+           if (maze[i][j] != -1) {
+               
+               maze[i][j] = 1;
+           }
        }
-       else {
-           y = ((rand() % ((maze_size - 2) / 2))) * 2 + 2;
+
+       // debug
+       showMaze(maze);
+   }
+
+    for (int i = 0; i < maze_size; i ++) {
+       for (int j =0; j < maze_size; j++) {
+
+           // Si la position ou je me trouve a la même valeur que la cellulle 2
+           if (maze[i][j] == -1) {
+               // on la remplace par la valeur de la cellulle 1 pour avoir un chemin rempli de même valeur
+               maze[i][j] = 41;
+           }
+           else {
+               maze[i][j] = 40;
+           }
+
        }
-       maze[x][y] = 0;
-       // toujours la fonction pour pouvoir fair l'animation de création est débug
-       showTab(maze);
    }
    // Une fois ceci terminier notre labyrinthe est créer donc nous pouvons l'afficher une bonne fois pour tous
-        showTab(maze);
+   showMaze(maze);
 
         // return 0 dans main() car tradition
     return 0;
