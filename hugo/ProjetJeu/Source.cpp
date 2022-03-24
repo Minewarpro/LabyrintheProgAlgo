@@ -1,5 +1,6 @@
 ﻿#include "Morpion.h"
 #include "TicTac.h"
+#include "JustePrix.h"
 
 
 #define KEY_UP 72
@@ -123,10 +124,10 @@ int main() {
 
     Personnage player(100, 5, 5);
 
-    //Déclaration Morpion
+    //Déclaration Events
     Morpion m1(56);
-
     TicTac t1(10);
+    JustePrix j1(20);
         
     //taille tableau
     int tabX = 30;
@@ -167,6 +168,10 @@ int main() {
     int eventY = player.getY() + 1;
     tab[eventY][eventX] = 3;
 
+    eventX = player.getX();
+    eventY = player.getY() - 1;
+    tab[eventY][eventX] = 3;
+
     
 
     
@@ -179,16 +184,17 @@ int main() {
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
             
-            int aleaMiniJeu = rand() % 2;
+            int aleaMiniJeu = rand() % 3;
             if (aleaMiniJeu == 0) { 
-            Morpion m;
-            m.playMorpion(player);
-            cout << m1;
+                Morpion m;
+                m.playMorpion(player);
             }
             else if (aleaMiniJeu == 1) { // mettre un mini jeu -> mettre un 'else if' en plus par mini jeu different
-                t1.playTictac(player);
-                cout << t1;
+                t1.playTictac(player);    
             } 
+            else if (aleaMiniJeu == 2) { // mettre un mini jeu -> mettre un 'else if' en plus par mini jeu different
+                j1.playJustePrix(player);           
+            }
             cout << player;
             tab[player.getY()][player.getX()] = 0;
         }

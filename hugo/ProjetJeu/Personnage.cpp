@@ -47,7 +47,7 @@ void Personnage::setY(int y1)
 void Personnage::attack(Personnage& ennemy)
 {
 	ennemy.setPoints(ennemy.getPoints() - getPoints());
-	cout << "vous avez perdu " << getPoints() << " de vie" << endl;
+	cout << "vous avez perdu " << getPoints() << " de vie" << endl << endl;
 }
 
 ostream& operator<<(ostream& os, Personnage& p)

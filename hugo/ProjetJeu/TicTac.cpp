@@ -69,7 +69,7 @@ void TicTac::playTictac(Personnage& p)
 
 ostream& operator<<(ostream& os, TicTac& tictac)
 {
-	os << "LeTicTac a " << tictac.getPoints() << " points" << endl << endl;
+	os << "LeTicTac a " << tictac.getPoints() << " points d'attaque" << endl << endl;
 
 	return os;
 }

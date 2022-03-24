@@ -180,7 +180,7 @@ void Morpion::playMorpion(Personnage& p)
 
 ostream& operator<<(ostream& os, Morpion& m)
 {
-    os << "Le Morpion a " << m.getPoints() << " points" << endl << endl;
+    os << "Le Morpion a " << m.getPoints() << " points d'attaque" << endl << endl;
 
     return os;
 }
