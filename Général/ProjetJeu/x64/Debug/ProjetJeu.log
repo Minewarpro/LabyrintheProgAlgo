@@ -1,0 +1,3 @@
+﻿  Source.cpp
+D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Source.cpp(122,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  ProjetJeu.vcxproj -> D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\x64\Debug\ProjetJeu.exe
