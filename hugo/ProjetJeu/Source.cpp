@@ -3,6 +3,7 @@
 #include "JustePrix.h"
 #include "Remember.h"
 #include "Pendu.h"
+#include "Ui.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -215,8 +216,9 @@ int main() {
     JustePrix j1(35);
     Remember r1(35);
     Pendu p1(20);
+    Ui test;
 
-
+    test.start();
     
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
