@@ -20,6 +20,7 @@ bool Ui::start()
 		myFile.close();
 	}
 	
+	cout << "Appuyez sur Alt + Enter pour mettre en plein ecran !" << endl;
 	cout << "Appuyez sur n'importe quel touche pour lancer le jeu !";
 
 	
