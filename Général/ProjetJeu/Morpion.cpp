@@ -94,7 +94,7 @@ int Morpion::testWin(vector<vector<int>>& tab)
         return 2;
     }
     else if (tab[0][2] == 2 && tab[1][2] == 2 && tab[2][2] == 2) {
-        return 1;
+        return 2;
     }
     else if (tab[0][0] == 2 && tab[1][1] == 2 && tab[2][2] == 2) {
         return 2;
