@@ -8,4 +8,5 @@ public:
 
 	bool start();
 	bool Death();
+	bool Win();
 };

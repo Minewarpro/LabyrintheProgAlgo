@@ -197,7 +197,7 @@ void move(vector<vector<int>>& tab, Personnage& p, int maze_size) {
     brouillard(tab, p, maze_size);
 }
 int main() {
-
+   
     SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
     srand(time(NULL));
     vector<vector<int>> tab;
@@ -413,6 +413,7 @@ int main() {
         HANDLE console;
         console = GetStdHandle(STD_OUTPUT_HANDLE);
         cout << "Vous avez reussi a sortir du labyrinthe !";
+        ui.Win();
     }
 
     //showColor();
