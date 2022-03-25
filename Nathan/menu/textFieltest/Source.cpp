@@ -22,7 +22,7 @@ int main()
 			cout << line << '\n';
 		}
 		myFile.close();
-	}
+	}	
 	
 	
 	PlaySound(TEXT("sod.wav"), NULL, SND_ASYNC);
