@@ -158,8 +158,6 @@ void brouillard(vector<vector<int>>& tab, Personnage& p, int maze_size) {
 }
 void move(vector<vector<int>>& tab, Personnage& p, int maze_size) {
 
-
-
     int c, ex;
     c = _getch();
     if (c && c != 224)
@@ -199,13 +197,15 @@ void move(vector<vector<int>>& tab, Personnage& p, int maze_size) {
 }
 int main() {
 
+    system("mode 650");
+    SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
     srand(time(NULL));
     vector<vector<int>> tab;
     vector <int> wall;
     vector <int> line;
 
     int nb = 2;
-    int maze_size = 21;
+    int maze_size = 31;
 
     Personnage player(100, 1, 1);
 
@@ -263,7 +263,7 @@ int main() {
 
 
     // tant que la case a coté de mon départ et la case a coté de mon arrivé non pas la même valeur alors on fait la boucle
-    while (tab[21 - 2][21 - 2] != tab[1][1]) {
+    while (tab[maze_size - 2][maze_size - 2] != tab[1][1]) {
 
 
         // prend une coordonné x au asard
@@ -353,7 +353,7 @@ int main() {
     //Events
     int nb_event = 0;
 
-    while (nb_event != 10) {
+    while (nb_event != 20) {
         int y = rand() % maze_size;
         int x = rand() % maze_size;
         if (tab[y][x] == 40) {
@@ -413,5 +413,6 @@ int main() {
 
     //showColor();
 
+    system("pause");
     return 0;
 }
