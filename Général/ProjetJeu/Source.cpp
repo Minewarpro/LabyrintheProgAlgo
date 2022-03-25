@@ -215,9 +215,11 @@ int main() {
     JustePrix j1(35);
     Remember r1(35);
     Pendu p1(20);
-    Ui test;
+    Ui ui;
 
-    test.start();
+
+   
+    ui.start();
     
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
@@ -403,7 +405,8 @@ int main() {
         system("cls");
         HANDLE console;
         console = GetStdHandle(STD_OUTPUT_HANDLE);
-        cout << "Vous avez perdu !";
+        cout << "Vous avez perdu !" << endl;;
+        ui.Death();
     }
     if (tab[player.getY()][player.getX()] == 4) {
         system("cls");
