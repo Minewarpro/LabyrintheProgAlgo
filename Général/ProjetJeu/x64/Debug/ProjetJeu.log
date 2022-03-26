@@ -1,24 +1,3 @@
 ﻿  JustePrix.cpp
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\JustePrix.cpp(17,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Morpion.cpp
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Morpion.cpp(159,29): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
-  Pendu.cpp
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Pendu.cpp(158,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Personnage.cpp
-  Quizz.cpp
-  Remember.cpp
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Remember.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-  Source.cpp
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Remember.h(2,10): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Source.cpp(202,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  TicTac.cpp
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\TicTac.cpp(25,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Ui.cpp
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(12,6): warning C4101: 'n' : variable locale non référencée
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(40,6): warning C4101: 'n' : variable locale non référencée
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(68,6): warning C4101: 'n' : variable locale non référencée
-  Génération de code en cours...
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(65): warning C4715: 'Ui::start' : les chemins de contrôle ne retournent pas tous une valeur
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(36): warning C4715: 'Ui::Death' : les chemins de contrôle ne retournent pas tous une valeur
-D:\git\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(93): warning C4715: 'Ui::Win' : les chemins de contrôle ne retournent pas tous une valeur
-  ProjetJeu.vcxproj -> D:\git\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe
+D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\JustePrix.cpp(17,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  ProjetJeu.vcxproj -> D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe

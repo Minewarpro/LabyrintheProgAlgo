@@ -4,6 +4,7 @@
 #include "Remember.h"
 #include "Pendu.h"
 #include "Ui.h"
+#include "Quizz.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -197,7 +198,7 @@ void move(vector<vector<int>>& tab, Personnage& p, int maze_size) {
     brouillard(tab, p, maze_size);
 }
 int main() {
-
+   
     SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
     srand(time(NULL));
     vector<vector<int>> tab;
@@ -210,14 +211,15 @@ int main() {
     Personnage player(100, 1, 1);
 
     //Déclaration Events
-    Morpion m1(40);
-    TicTac t1(20);
-    JustePrix j1(35);
-    Remember r1(35);
-    Pendu p1(20);
-    Ui test;
+    Morpion m(15);
+    TicTac t(10);
+    JustePrix j(20);
+    Remember r(10);
+    Pendu p(10);
+    Quizz q(15);
+    Ui ui;
 
-    test.start();
+    ui.start();
     
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
@@ -375,22 +377,24 @@ int main() {
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
 
-            int aleaMiniJeu = rand() % 5;
+            int aleaMiniJeu = rand() % 6;
             if (aleaMiniJeu == 0) { //Morpion
-                Morpion m;
                 m.playMorpion(player);
             }
             else if (aleaMiniJeu == 1) {  // TicTac
-                t1.playTictac(player);
+                t.playTictac(player);
             }
             else if (aleaMiniJeu == 2) { // JustePrix
-                j1.playJustePrix(player);
+                j.playJustePrix(player);
             }
             else if (aleaMiniJeu == 3) { // Remember
-                r1.playRemember(player);
+                r.playRemember(player);
             }
             else if (aleaMiniJeu == 4) { // Remember
-                p1.playPendu(player);
+                p.playPendu(player);
+            }
+            else if (aleaMiniJeu == 5) { // Remember
+                q.playQuizz(player);
             }
             cout << player;
             tab[player.getY()][player.getX()] = 0;
@@ -403,13 +407,15 @@ int main() {
         system("cls");
         HANDLE console;
         console = GetStdHandle(STD_OUTPUT_HANDLE);
-        cout << "Vous avez perdu !";
+        cout << "Vous avez perdu !" << endl;;
+        ui.Death();
     }
     if (tab[player.getY()][player.getX()] == 4) {
         system("cls");
         HANDLE console;
         console = GetStdHandle(STD_OUTPUT_HANDLE);
         cout << "Vous avez reussi a sortir du labyrinthe !";
+        ui.Win();
     }
 
     //showColor();

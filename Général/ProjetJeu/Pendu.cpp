@@ -180,14 +180,12 @@ void Pendu::playPendu(Personnage& p)
         cout << "== Le mot que tu dois deviner est ==\n\n"
             << "->> " << MysteryWord << " <<-\n\n"
             << "Il te reste " << essais << " essais.\n"
-            << "\n-Devine une lettre : \n";
+            << "\n-Devine une lettre (en minuscule): \n";
         cin >> Devine;
 
         system("cls");
         HANDLE console;
         console = GetStdHandle(STD_OUTPUT_HANDLE);
-
-        cout << essais << endl;
 
         // Check de la lettre entrer par le joueur
         for (int i = 0; i < MysteryWord.length(); i++) // pour la longueur du mot fait :
@@ -212,7 +210,7 @@ void Pendu::playPendu(Personnage& p)
         };
         showPendu(essais);
     }   
-    if (essais == 0) {
+    if (essais < 0) {
         attack(p);
     }
 }

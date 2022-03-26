@@ -50,11 +50,14 @@ void TicTac::playTictac(Personnage& p)
 		secondsPreview--;
 		Sleep(1000);
 	}
-	cout << "tu dois ecrire le mot : " << wordToWrite << endl;
+
+	cout << "tu dois ecrire le mot (en minuscule): " << wordToWrite << endl;
 	cin >> word;
 	timer = clock() - timerInit;
 	cout << "-----------------" << endl;
 	cout << "Vous avez mis : " << ((double)timer / CLOCKS_PER_SEC) - 6 << " secondes a ecrire le mot" << endl << endl;
+
+
 	if (word == wordToWrite && ((double)timer / CLOCKS_PER_SEC) - 6 < secondsMax) {
 		cout << "-----------------" << endl;
 		cout << "Vous avez gagne" << endl;

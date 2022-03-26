@@ -7,4 +7,6 @@ public:
 	Ui();
 
 	bool start();
+	bool Death();
+	bool Win();
 };

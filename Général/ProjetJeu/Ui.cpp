@@ -24,7 +24,6 @@ bool Ui::Death() {
 		myFile.close();
 	}
 	
-	cout << "Appuyez sur Alt + Enter pour mettre en plein ecran !" << endl;
 	cout << "Appuyez sur n'importe quel touche pour finir le jeu !";
 
 
@@ -80,7 +79,6 @@ bool Ui::Win() {
 		myFile.close();
 	}
 
-	cout << "Appuyez sur Alt + Enter pour mettre en plein ecran !" << endl;
 	cout << "Appuyez sur n'importe quel touche pour finir le jeu !";
 
 

@@ -47,7 +47,7 @@ void JustePrix::playJustePrix(Personnage& p)
 
 		moves++;
 	}
-	if (moves < 10) {
+	if (moves <= 10) {
 		cout << "Vous avez gagne !" << endl;
 	}
 	else {

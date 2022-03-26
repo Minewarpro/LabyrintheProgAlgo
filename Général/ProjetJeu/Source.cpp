@@ -4,6 +4,7 @@
 #include "Remember.h"
 #include "Pendu.h"
 #include "Ui.h"
+#include "Quizz.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -210,15 +211,14 @@ int main() {
     Personnage player(100, 1, 1);
 
     //Déclaration Events
-    Morpion m1(40);
-    TicTac t1(20);
-    JustePrix j1(35);
-    Remember r1(35);
-    Pendu p1(20);
+    Morpion m(15);
+    TicTac t(10);
+    JustePrix j(20);
+    Remember r(10);
+    Pendu p(10);
+    Quizz q(15);
     Ui ui;
 
-
-   
     ui.start();
     
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
@@ -377,22 +377,24 @@ int main() {
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
 
-            int aleaMiniJeu = rand() % 5;
+            int aleaMiniJeu = rand() % 6;
             if (aleaMiniJeu == 0) { //Morpion
-                Morpion m;
                 m.playMorpion(player);
             }
             else if (aleaMiniJeu == 1) {  // TicTac
-                t1.playTictac(player);
+                t.playTictac(player);
             }
             else if (aleaMiniJeu == 2) { // JustePrix
-                j1.playJustePrix(player);
+                j.playJustePrix(player);
             }
             else if (aleaMiniJeu == 3) { // Remember
-                r1.playRemember(player);
+                r.playRemember(player);
             }
             else if (aleaMiniJeu == 4) { // Remember
-                p1.playPendu(player);
+                p.playPendu(player);
+            }
+            else if (aleaMiniJeu == 5) { // Remember
+                q.playQuizz(player);
             }
             cout << player;
             tab[player.getY()][player.getX()] = 0;

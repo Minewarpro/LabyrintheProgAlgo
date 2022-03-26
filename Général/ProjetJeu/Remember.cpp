@@ -17,7 +17,7 @@ void Remember::playRemember(Personnage& p)
 	int secondsPreview = 5;
 	int secondsMax = 10;
 
-	/*for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < 6; i++) {
 		system("cls");
 		HANDLE console;
 		console = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -29,7 +29,7 @@ void Remember::playRemember(Personnage& p)
 		cout << "-----------------" << endl;
 		secondsPreview--;
 		Sleep(1000);
-	}*/
+	}
 
 	for (int i = 0; i < 11; i++) {
 		system("cls");

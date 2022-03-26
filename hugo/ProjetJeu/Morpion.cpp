@@ -1,5 +1,6 @@
 #include "Morpion.h"
 
+
 Morpion::Morpion()
 {
 }
@@ -42,6 +43,7 @@ void Morpion::showMorpion(vector<vector<int>>& tab)
                 cout << "|O|";
                 break;
             default:
+                cout << "| |";
                 break;
             }
         }
@@ -117,7 +119,7 @@ void Morpion::playMorpion(Personnage& p)
 
     while (testWin(tab) == 0 && tourRestant != 0) {
         int juste = false;
-
+        
         cout << "Quelle ligne ?" << endl;
         cin >> ligne;
         cout << "Quelle colonne ?" << endl;
@@ -127,6 +129,13 @@ void Morpion::playMorpion(Personnage& p)
             cout << "Saisie eronnee" << endl;
             cout << "Quelle ligne ?" << endl;
             cin >> ligne;
+            /*if (cin.fail())  // Ne marche pas, à réparer.
+            {
+                cout << "Vous n'avez pas rentrez un nombre" << endl;
+                cin.clear();
+                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                break;
+            }*/
             cout << "Quelle colonne ?" << endl;
             cin >> colonne;
         }
