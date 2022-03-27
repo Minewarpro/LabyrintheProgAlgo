@@ -13,5 +13,11 @@ public :
     void question2(bool& verif);
     void question3(bool& verif);
     void question4(bool& verif);
+    void question5(bool& verif);
+    void question6(bool& verif);
+    void question7(bool& verif);
+    void question8(bool& verif);
+    void question9(bool& verif);
+    void question10(bool& verif);
 };
 

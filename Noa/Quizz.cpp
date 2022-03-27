@@ -57,6 +57,24 @@ void Quizz::playQuizz(Personnage& p)
 	case 4:
 		question4(verif);
 		break;
+	case 5:
+		question4(verif);
+		break;
+	case 6:
+		question4(verif);
+		break;
+	case 7:
+		question4(verif);
+		break;
+	case 8:
+		question4(verif);
+		break;
+	case 9:
+		question4(verif);
+		break;
+	case 10:
+		question4(verif);
+		break;
 	}
 
 	cout << verif;
@@ -231,7 +249,7 @@ void Quizz::question3(bool& verif)
 
 }
 
-void Quizz::question3(bool& verif)
+void Quizz::question4(bool& verif)
 {
 	int r;
 
@@ -277,6 +295,307 @@ void Quizz::question3(bool& verif)
 	case 4:
 		cout << "bah non !";
 		verif = false;
+		break;
+	}
+
+}
+
+void Quizz::question5(bool& verif)
+{
+	int r;
+
+	Sleep(100);
+	cout << "                  question de culture general :  " << endl;
+	Beep(100, 300);
+	Sleep(500);
+	cout << "Hawaï appartient à quel pays ?   " << endl << endl;
+
+	Sleep(500);
+	Beep(200, 300);
+	cout << "1 : Mexique";
+	Sleep(500);
+	Beep(200, 300);
+	cout << "     2 : Etats Unis" << endl << endl;
+	Sleep(500);
+	Beep(200, 300);
+	cout << "3 : Russie";
+	Sleep(500);
+	cout << "     4 : Japon" << endl << endl;
+	Beep(200, 300);
+
+	cout << "La reponse (entrez un chiffre) : "; cin >> r;
+
+	switch (r)
+	{
+	default:
+		cout << "Reponse invalide";
+		break;
+	case 1:
+		cout << "Pas du tout !";
+		verif = false;
+		break;
+	case 2:
+		cout << "tout a fait";
+		verif = true;
+		cout << verif;
+		break;
+	case 3:
+		cout << "alors peut etre.... en fait non !";
+		verif = false;
+		break;
+	case 4:
+		cout << "pas du tout";
+		verif = false;
+		break;
+	}
+
+}
+
+void Quizz::question6(bool& verif)
+{
+	int r;
+
+	Sleep(100);
+	cout << "                  question de culture general :  " << endl;
+	Beep(100, 300);
+	Sleep(500);
+	cout << "Quel est le pays le plus peuplé du monde ?  " << endl << endl;
+
+	Sleep(500);
+	Beep(200, 300);
+	cout << "1 : La Chine";
+	Sleep(500);
+	Beep(200, 300);
+	cout << "     2 : Les USA " << endl << endl;
+	Sleep(500);
+	Beep(200, 300);
+	cout << "3 : L'Inde";
+	Sleep(500);
+	cout << "     4 : Le Brésil" << endl << endl;
+	Beep(200, 300);
+
+	cout << "La reponse (entrez un chiffre) : "; cin >> r;
+
+	switch (r)
+	{
+	default:
+		cout << "Reponse invalide";
+		break;
+	case 1:
+		cout << "Oui, Bravo !";
+		verif = true;
+		break;
+	case 2:
+		cout << "mais non !";
+		verif = false;
+		break;
+	case 3:
+		cout << "non !";
+		verif = false;
+		break;
+	case 4:
+		cout << "Presque !";
+		verif = false;
+		break;
+	}
+
+}
+
+void Quizz::question7(bool& verif)
+{
+	int r;
+
+	Sleep(100);
+	cout << "                  question de culture general :  " << endl;
+	Beep(100, 300);
+	Sleep(500);
+	cout << "Quel est le premier film de Disney ?  " << endl << endl;
+
+	Sleep(500);
+	Beep(200, 300);
+	cout << "1 : Cendrillon";
+	Sleep(500);
+	Beep(200, 300);
+	cout << "     2 : Blanche Neige " << endl << endl;
+	Sleep(500);
+	Beep(200, 300);
+	cout << "3 : Le livre de la jungle";
+	Sleep(500);
+	cout << "     4 : La belle et la bete" << endl << endl;
+	Beep(200, 300);
+
+	cout << "La reponse (entrez un chiffre) : "; cin >> r;
+
+	switch (r)
+	{
+	default:
+		cout << "Reponse invalide";
+		break;
+	case 1:
+		cout << "Naze !";
+		verif = false;
+		break;
+	case 2:
+		cout << "GG !";
+		verif = true;
+		break;
+	case 3:
+		cout << "non !";
+		verif = false;
+		break;
+	case 4:
+		cout << "nul !";
+		verif = false;
+		break;
+	}
+
+}
+
+void Quizz::question8(bool& verif)
+{
+	int r;
+
+	Sleep(100);
+	cout << "                  question de culture general :  " << endl;
+	Beep(100, 300);
+	Sleep(500);
+	cout << "En quelle année a eu lieu la découverte de l'Amérique ?  " << endl << endl;
+
+	Sleep(500);
+	Beep(200, 300);
+	cout << "1 : 1483";
+	Sleep(500);
+	Beep(200, 300);
+	cout << "     2 : 1488 " << endl << endl;
+	Sleep(500);
+	Beep(200, 300);
+	cout << "3 : 1490";
+	Sleep(500);
+	cout << "     4 : 1492" << endl << endl;
+	Beep(200, 300);
+
+	cout << "La reponse (entrez un chiffre) : "; cin >> r;
+
+	switch (r)
+	{
+	default:
+		cout << "Reponse invalide";
+		break;
+	case 1:
+		cout << "Naze !";
+		verif = false;
+		break;
+	case 2:
+		cout << "pourrit !";
+		verif = false;
+		break;
+	case 3:
+		cout << "Bidon !";
+		verif = false;
+		break;
+	case 4:
+		cout << "Insane !";
+		verif = true;
+		break;
+	}
+
+}
+
+void Quizz::question9(bool& verif)
+{
+	int r;
+
+	Sleep(100);
+	cout << "                  question de culture general :  " << endl;
+	Beep(100, 300);
+	Sleep(500);
+	cout << "De quel groupe est la chanson Let it be ?  " << endl << endl;
+
+	Sleep(500);
+	Beep(200, 300);
+	cout << "1 : Queen";
+	Sleep(500);
+	Beep(200, 300);
+	cout << "     2 : Nirvana" << endl << endl;
+	Sleep(500);
+	Beep(200, 300);
+	cout << "3 : The Beatles";
+	Sleep(500);
+	cout << "     4 : Radiohead" << endl << endl;
+	Beep(200, 300);
+
+	cout << "La reponse (entrez un chiffre) : "; cin >> r;
+
+	switch (r)
+	{
+	default:
+		cout << "Reponse invalide";
+		break;
+	case 1:
+		cout << "c'est l'enfer qui t'attend !";
+		verif = false;
+		break;
+	case 2:
+		cout << "malédiction sur toi et ta descendance !";
+		verif = false;
+		break;
+	case 3:
+		cout << "heureusement que tu connais la réponse !";
+		verif = true;
+		break;
+	case 4:
+		cout << "honte a toi !";
+		verif = false;
+		break;
+	}
+
+}
+
+void Quizz::question10(bool& verif)
+{
+	int r;
+
+	Sleep(100);
+	cout << "                  question de culture general :  " << endl;
+	Beep(100, 300);
+	Sleep(500);
+	cout << "Combien de ligue des champions a gagné Paris ?  " << endl << endl;
+
+	Sleep(500);
+	Beep(200, 300);
+	cout << "1 : 2";
+	Sleep(500);
+	Beep(200, 300);
+	cout << "     2 : 1" << endl << endl;
+	Sleep(500);
+	Beep(200, 300);
+	cout << "3 : 4";
+	Sleep(500);
+	cout << "     4 : 0" << endl << endl;
+	Beep(200, 300);
+
+	cout << "La reponse (entrez un chiffre) : "; cin >> r;
+
+	switch (r)
+	{
+	default:
+		cout << "Reponse invalide";
+		break;
+	case 1:
+		cout << "tié fada ou quoi !";
+		verif = false;
+		break;
+	case 2:
+		cout << "non mais c'est le vase qui eclate la goutte d'eau !";
+		verif = false;
+		break;
+	case 3:
+		cout << "tié un fifou dans la tete ou quoi !";
+		verif = false;
+		break;
+	case 4:
+		cout << "tié un bon !";
+		verif = true;
 		break;
 	}
 
