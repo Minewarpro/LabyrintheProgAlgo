@@ -1,6 +1,10 @@
 ﻿#include "Morpion.h"
 #include "TicTac.h"
-
+#include "JustePrix.h"
+#include "Remember.h"
+#include "Pendu.h"
+#include "Ui.h"
+#include "Quizz.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -55,14 +59,24 @@ void showTab(vector<vector<int>> tab, Personnage& p) {
                     cout << "  ";
                     break;
                 case 4:
-                    SetConsoleTextAttribute(console, 170); // vert
+                    SetConsoleTextAttribute(console, 102); // orange 
                     cout << "  ";
                     break;
                 case 44:
-                    SetConsoleTextAttribute(console, 15); // noir futur vert
+                    SetConsoleTextAttribute(console, 15); // noir futur orange
+                    cout << "  ";
+                    break;
+                case 5:
+                    SetConsoleTextAttribute(console, 170); //vert
+                    cout << "  ";
+                    break;
+                case 45:
+                    SetConsoleTextAttribute(console, 15); //vert
                     cout << "  ";
                     break;
                 default:
+                
+
                     break;
                 }
             }
@@ -78,17 +92,17 @@ void showMaze(vector<vector<int>> tab) {
     console = GetStdHandle(STD_OUTPUT_HANDLE);
     for (int i = 0; i < tab.size(); i++) {
         for (int j = 0; j < tab[i].size(); j++) {
-           
-                switch (tab[i][j])
-                {
-                case -1:
-                    SetConsoleTextAttribute(console, 136); // gris foncé
-                    cout << "XX";
-                    break;
-                default:
-                    SetConsoleTextAttribute(console, 119); // gris clair
-                    cout << "XX";
-                    break;
+
+            switch (tab[i][j])
+            {
+            case -1:
+                SetConsoleTextAttribute(console, 136); // gris foncé
+                cout << "XX";
+                break;
+            default:
+                SetConsoleTextAttribute(console, 119); // gris clair
+                cout << "XX";
+                break;
             }
 
         }
@@ -96,23 +110,22 @@ void showMaze(vector<vector<int>> tab) {
         cout << endl;
     }
 }
-
-void brouillard(vector<vector<int>>& tab, Personnage& p,int maze_size) {
+void brouillard(vector<vector<int>>& tab, Personnage& p, int maze_size) {
     bool b = false;
-    if (p.getY() > 2 && p.getY() < maze_size - 2 && p.getX() > 2 && p.getX() < maze_size - 2) {
-    for (int i = -2; i < 3; i++) {
-        for (int j = -2; j < 3; j++) {
-           
+    if (p.getY() > 1 && p.getY() < maze_size - 2 && p.getX() > 1 && p.getX() < maze_size - 2) {
+        for (int i = -2; i < 3; i++) {
+            for (int j = -2; j < 3; j++) {
+
                 if (!((i == -2 || i == 2) && (j == -2 || j == 2))) {
                     if (tab[p.getY() + j][p.getX() + i] == 40) {
 
                         tab[p.getY() + j][p.getX() + i] = 0;
-                        
+
                     }
 
                     if (tab[p.getY() + j][p.getX() + i] == 41) {
                         tab[p.getY() + j][p.getX() + i] = 1;
-                        
+
                     }
                     if (tab[p.getY() + j][p.getX() + i] == 43) {
                         tab[p.getY() + j][p.getX() + i] = 3;
@@ -124,9 +137,9 @@ void brouillard(vector<vector<int>>& tab, Personnage& p,int maze_size) {
                     }
                     b = true;
                 }
-                
+
             }
-            
+
         }
     }
     if (b == false) {
@@ -155,9 +168,7 @@ void brouillard(vector<vector<int>>& tab, Personnage& p,int maze_size) {
         }
     }
 }
-void move(vector<vector<int>>& tab, Personnage& p,int maze_size) {
-
-    
+void move(vector<vector<int>>& tab, Personnage& p, int maze_size) {
 
     int c, ex;
     c = _getch();
@@ -170,7 +181,7 @@ void move(vector<vector<int>>& tab, Personnage& p,int maze_size) {
         {
         case KEY_UP:
             if (tab[p.getY() - 1][p.getX()] != 1) {
-                p.setY(p.getY() - 1);    
+                p.setY(p.getY() - 1);
             }
             break;
         case KEY_DOWN:
@@ -198,20 +209,27 @@ void move(vector<vector<int>>& tab, Personnage& p,int maze_size) {
 }
 int main() {
 
+    SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
     srand(time(NULL));
     vector<vector<int>> tab;
     vector <int> wall;
     vector <int> line;
 
     int nb = 2;
-    int maze_size = 21;
+    int maze_size = 31;
 
     Personnage player(100, 1, 1);
 
-    //Déclaration Morpion
-    Morpion m1(56);
+    //Déclaration Events
+    Morpion m(15);
+    TicTac t(10);
+    JustePrix j(20);
+    Remember r(10);
+    Pendu p(10);
+    Quizz q(15);
+    Ui ui;
 
-    TicTac t1(10);
+    ui.start();
 
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
@@ -237,6 +255,7 @@ int main() {
     }
 
     // ajout d'une valeur allant de 1 jusqu'à la size de mon labyrinthe pour donner des valeur différente au chemin
+    nb = 0;
     for (int x = 0; x < maze_size; x++) {
         for (int y = 0; y < maze_size; y++) {
             if (tab[x][y] == 0) {
@@ -258,7 +277,7 @@ int main() {
 
 
     // tant que la case a coté de mon départ et la case a coté de mon arrivé non pas la même valeur alors on fait la boucle
-    while (tab[21 - 2][21 - 2] != tab[1][1]) {
+    while (tab[maze_size - 2][maze_size - 2] != tab[1][1]) {
 
 
         // prend une coordonné x au asard
@@ -343,12 +362,12 @@ int main() {
     }
     // fin de la création du labyrinthe
 
-    
-    
+
+
     //Events
     int nb_event = 0;
 
-    while (nb_event != 10) {
+    while (nb_event != 20) {
         int y = rand() % maze_size;
         int x = rand() % maze_size;
         if (tab[y][x] == 40) {
@@ -357,35 +376,59 @@ int main() {
         }
     }
 
-    tab[maze_size - 2][maze_size -2] = 44;
+    tab[maze_size - 2][maze_size - 2] = 44;
 
-    
+
     //Tours
     tab[player.getY()][player.getX()] = 0; // ne pas touchew
     int tour = 10000;
-    for (int i = 0; i < tour; i++) {
+    while (player.getPoints() > 0 && tab[player.getY()][player.getX()] != 4) {
         brouillard(tab, player, maze_size);
         showTab(tab, player);
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
-            
-            int aleaMiniJeu = rand() % 2;
-            if (aleaMiniJeu == 0) { 
-            Morpion m;
-            m.playMorpion(player);
-            cout << m1;
+
+            int aleaMiniJeu = rand() % 6;
+            if (aleaMiniJeu == 0) { //Morpion
+                m.playMorpion(player);
             }
-            else if (aleaMiniJeu == 1) { // mettre un mini jeu -> mettre un 'else if' en plus par mini jeu different
-                t1.playTictac(player);
-                cout << t1;
-            } 
+            else if (aleaMiniJeu == 1) {  // TicTac
+                t.playTictac(player);
+            }
+            else if (aleaMiniJeu == 2) { // JustePrix
+                j.playJustePrix(player);
+            }
+            else if (aleaMiniJeu == 3) { // Remember
+                r.playRemember(player);
+            }
+            else if (aleaMiniJeu == 4) { // Remember
+                p.playPendu(player);
+            }
+            else if (aleaMiniJeu == 5) { // Remember
+                q.playQuizz(player);
+            }
             cout << player;
             tab[player.getY()][player.getX()] = 0;
         }
-        move(tab, player, maze_size);
+    }
+
+    // Vérifie si l'on est sortie du labyrinthe et si l'on a encore de le vie
+    if (player.getPoints() <= 0) {
+        system("cls");
+        HANDLE console;
+        console = GetStdHandle(STD_OUTPUT_HANDLE);
+        cout << "Vous avez perdu !" << endl;;
+        ui.Death();
+    }
+    if (tab[player.getY()][player.getX()] == 4) {
+        system("cls");
+        HANDLE console;
+        console = GetStdHandle(STD_OUTPUT_HANDLE);
+        cout << "Vous avez reussi a sortir du labyrinthe !";
+        ui.Win();
     }
 
     //showColor();
-    
+
     return 0;
 }

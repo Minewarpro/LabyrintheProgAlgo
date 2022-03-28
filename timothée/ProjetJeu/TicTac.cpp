@@ -41,6 +41,7 @@ void TicTac::playTictac(Personnage& p)
 		system("cls");
 		HANDLE console;
 		console = GetStdHandle(STD_OUTPUT_HANDLE);
+		cout << "   TicTac" << endl;
 		cout << "-----------------" << endl;
 		cout << "Vous aurez : " << secondsMax << " secondes pour ecrire le mot affiche" << endl;
 		cout << "-----------------" << endl;
@@ -49,11 +50,14 @@ void TicTac::playTictac(Personnage& p)
 		secondsPreview--;
 		Sleep(1000);
 	}
-	cout << "tu dois ecrire le mot : " << wordToWrite << endl;
+
+	cout << "tu dois ecrire le mot (en minuscule): " << wordToWrite << endl;
 	cin >> word;
 	timer = clock() - timerInit;
 	cout << "-----------------" << endl;
 	cout << "Vous avez mis : " << ((double)timer / CLOCKS_PER_SEC) - 6 << " secondes a ecrire le mot" << endl << endl;
+
+
 	if (word == wordToWrite && ((double)timer / CLOCKS_PER_SEC) - 6 < secondsMax) {
 		cout << "-----------------" << endl;
 		cout << "Vous avez gagne" << endl;
@@ -69,7 +73,7 @@ void TicTac::playTictac(Personnage& p)
 
 ostream& operator<<(ostream& os, TicTac& tictac)
 {
-	os << "LeTicTac a " << tictac.getPoints() << " points" << endl << endl;
+	os << "LeTicTac a " << tictac.getPoints() << " points d'attaque" << endl << endl;
 
 	return os;
 }

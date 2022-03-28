@@ -9,7 +9,8 @@
 #include <fstream>
 #include<stdlib.h>
 #include<string>
-
+#include <cstdlib>
+#include<mmsystem.h>
 
 using namespace std;
 

@@ -120,6 +120,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>Winmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,15 +140,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="JustePrix.cpp" />
     <ClCompile Include="Morpion.cpp" />
+    <ClCompile Include="Pendu.cpp" />
     <ClCompile Include="Personnage.cpp" />
+    <ClCompile Include="Quizz.cpp" />
+    <ClCompile Include="Remember.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TicTac.cpp" />
+    <ClCompile Include="Ui.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="JustePrix.h" />
     <ClInclude Include="Morpion.h" />
+    <ClInclude Include="Pendu.h" />
     <ClInclude Include="Personnage.h" />
+    <ClInclude Include="Quizz.h" />
+    <ClInclude Include="Remember.h" />
     <ClInclude Include="TicTac.h" />
+    <ClInclude Include="Ui.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

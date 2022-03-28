@@ -1,1 +1,2 @@
 D:\ETPA\Prog algo\ProjetJeu\Debug\ProjetJeu.exe
+C:\Users\lixyg\OneDrive\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Debug\ProjetJeu.exe

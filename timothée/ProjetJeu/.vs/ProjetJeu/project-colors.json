@@ -10,7 +10,12 @@
       "ProjectGuid": "831662e9-5390-488d-ba8a-1af589e5cff9",
       "DisplayName": "ProjetJeu",
       "ColorIndex": 0
+    },
+    "a7a2a36c-3c53-4ccb-b52e-425623e2dda5": {
+      "ProjectGuid": "a7a2a36c-3c53-4ccb-b52e-425623e2dda5",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
