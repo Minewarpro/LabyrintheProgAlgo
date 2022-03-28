@@ -4,3 +4,4 @@ D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\x64\Debug\Proj
 E:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\x64\Debug\ProjetJeu.exe
 D:\git\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe
 D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe
+E:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe

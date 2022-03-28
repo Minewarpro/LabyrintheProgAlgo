@@ -219,6 +219,8 @@ int main() {
     Quizz q(15);
     Ui ui;
 
+    q.playQuizz(player);
+
     ui.start();
     
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)

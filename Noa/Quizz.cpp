@@ -21,7 +21,7 @@ void Quizz::playQuizz(Personnage& p)
 	HANDLE console;
 	console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	questionC = (rand() % 2) + 1;
+	questionC = (rand() % 10) + 1;
 
 	int vie = 3;
 	int r;
@@ -58,26 +58,24 @@ void Quizz::playQuizz(Personnage& p)
 		question4(verif);
 		break;
 	case 5:
-		question4(verif);
+		question5(verif);
 		break;
 	case 6:
-		question4(verif);
+		question6(verif);
 		break;
 	case 7:
-		question4(verif);
+		question7(verif);
 		break;
 	case 8:
-		question4(verif);
+		question8(verif);
 		break;
 	case 9:
-		question4(verif);
+		question9(verif);
 		break;
 	case 10:
-		question4(verif);
+		question10(verif);
 		break;
 	}
-
-	cout << verif;
 
 	Sleep(2000);
 	system("cls");
