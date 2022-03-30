@@ -59,14 +59,20 @@ void showTab(vector<vector<int>> tab, Personnage& p) {
                     cout << "  ";
                     break;
                 case 4:
-                    SetConsoleTextAttribute(console, 170); // vert
+                    SetConsoleTextAttribute(console, 102); // vert 
                     cout << "  ";
                     break;
                 case 44:
-                    SetConsoleTextAttribute(console, 15); // noir futur vert
+                    SetConsoleTextAttribute(console, 15); // noir futur orange
+                    cout << "  ";
+                    break;
+                case 45:
+                    SetConsoleTextAttribute(console, 170); // noir futur vert
                     cout << "  ";
                     break;
                 default:
+                
+
                     break;
                 }
             }
@@ -198,7 +204,7 @@ void move(vector<vector<int>>& tab, Personnage& p, int maze_size) {
     brouillard(tab, p, maze_size);
 }
 int main() {
-   
+
     SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
     srand(time(NULL));
     vector<vector<int>> tab;
@@ -219,10 +225,8 @@ int main() {
     Quizz q(15);
     Ui ui;
 
-    q.playQuizz(player);
-
     ui.start();
-    
+
     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
         wall.push_back(-1);
@@ -367,7 +371,7 @@ int main() {
         }
     }
 
-    tab[maze_size - 2][maze_size - 2] = 44; 
+    tab[maze_size - 2][maze_size - 2] = 44;
 
 
     //Tours
