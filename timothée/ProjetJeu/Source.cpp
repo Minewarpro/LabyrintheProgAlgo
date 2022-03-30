@@ -5,6 +5,7 @@
 #include "Pendu.h"
 #include "Ui.h"
 #include "Quizz.h"
+#include "Shifumi.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -233,6 +234,7 @@ int main() {
     Remember r(10);
     Pendu p(10);
     Quizz q(15);
+    Shifumi s(15);
     Ui ui;
 
     ui.start();
@@ -393,7 +395,7 @@ int main() {
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
 
-            int aleaMiniJeu = rand() % 6;
+            int aleaMiniJeu = rand() % 7;
             if (aleaMiniJeu == 0) { //Morpion
                 m.playMorpion(player);
             }
@@ -411,6 +413,9 @@ int main() {
             }
             else if (aleaMiniJeu == 5) { // Remember
                 q.playQuizz(player);
+            }
+            else if (aleaMiniJeu == 6) { // Remember
+                s.playShifumi(player);
             }
             cout << player;
             tab[player.getY()][player.getX()] = 0;
