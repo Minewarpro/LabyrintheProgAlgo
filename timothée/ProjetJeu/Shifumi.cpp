@@ -19,6 +19,7 @@ void Shifumi::playShifumi(Personnage& p)
 
 	srand(time(NULL));
 
+	system("cls");
 	while (win != true && loose != true)
 	{
 		cout << "Quelle est votre choix ?" << endl;

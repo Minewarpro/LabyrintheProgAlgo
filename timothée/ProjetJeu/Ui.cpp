@@ -50,7 +50,7 @@ bool Ui::start()
 		myFile.close();
 	}
 	
-	cout << "Appuyez sur Alt + Enter pour mettre en plein ecran !" << endl;
+	cout << "Appuyez sur Alt + Enter pour mettre en pleine écran !" << endl;
 	cout << "Appuyez sur n'importe quel touche pour lancer le jeu !";
 
 	
@@ -89,3 +89,133 @@ bool Ui::Win() {
 
 
 }
+
+int Ui::StartChoix()
+{
+
+	int choix = 0;
+	string str = "Choix du mode";
+	int BeebR = 0;
+	int j = 100;
+
+	system("cls");
+	cout << "                ";
+	for (int i = 0; i < str.size(); i++) {
+		cout << " ";
+		cout << str[i];
+		BeebR = (rand() % 10) + 150;
+		Beep(BeebR, 300);
+		Sleep(0);
+	}
+	cout << endl << endl;
+
+	cout << "      1.Classique mode";
+	Beep(300,100);
+	Sleep(1000);
+	Beep(300, 100);
+	cout << "                 2.Endless mode ";
+	Sleep(1000);
+
+	cout << endl;
+
+
+	while (choix != 1 && choix != 2)
+	{
+		cin >> choix;
+	}
+	
+	
+		
+
+return choix;
+}
+
+int Ui::DicultyChoice()
+{
+	int choix = 0;
+	string str = "                                     Choix de la difulcuté : ";
+	int BeebR = 0;
+	int j = 100;
+
+	system("cls");
+	cout << str;
+	
+	cout << endl << endl;
+
+	cout << "      1.Facile";
+	Beep(300, 100);
+	Sleep(1000);
+	cout << "                 2.Normale ";
+	Beep(300, 100);
+	Sleep(1000);
+	cout << "           3.Dificile";
+	Beep(300, 100);
+	Sleep(1000);
+	Beep(300, 100);
+	cout << "               4.Custom " << endl;
+	cout << endl;
+
+
+	while (choix != 1 && choix != 2 && choix != 3 && choix != 4)
+	{
+		cin >> choix;
+	}
+
+
+
+
+	return choix;
+}
+
+int Ui::CustomChoiceTaille()
+{
+
+	int taille = 0;
+	Beep(200, 100);
+	cout << "               Choix taille du labyrinthe:" << endl << endl << endl;
+	cout << "Taille du carré du labyrinthe ( entre 10 et 100 ) : ";
+	cin >> taille;
+	cout << endl;
+	while (taille <= 10 && taille >=101) {
+		cout << "Taille Invalide";
+		cin >> taille;
+	}
+	
+	return taille;
+}
+
+int Ui::CustomChoiceEvent()
+{
+	int event = 0;
+	Beep(200, 100);
+	cout << "               Choix nombre minijeux du labyrinthe:" << endl << endl << endl;
+
+	cout << "Nombre de minijeux dans lelabyrinthe ( 10 de moins que la taille conseillé) : ";
+	cin >> event;
+	cout << endl;
+
+	while (event <= 0) {
+		cout << "Taille Invalide";
+		cin >> event;
+	}
+	return event;
+}
+
+int Ui::CustomChoiceEtage()
+{
+	int etage = 0;
+	Beep(200, 100);
+	cout << "               Choix nombre étage du labyrinthe:" << endl << endl << endl;
+
+	cout << "Nombre d'étage dans le labyrinthe ( 1 minimun) : ";
+	cin >> etage;
+	cout << endl;
+
+	while (etage <= 0) {
+		cout << "Taille Invalide";
+		cin >> etage;
+	}
+	system("cls");
+	return etage;
+}
+
