@@ -12,6 +12,8 @@
 #define KEY_LEFT 75
 #define KEY_RIGHT 77
 
+// #define KEY_ENTER 13
+
 void showColor() {
     HANDLE console;
     int m;
@@ -21,7 +23,7 @@ void showColor() {
         cout << m << " " << endl;
     }
 }
-void showTab(vector<vector<int>> tab, Personnage& p) {
+void showTab(vector<vector<int>> tab, Personnage& p, int bombe) {
     system("cls");
     HANDLE console;
     console = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -86,6 +88,7 @@ void showTab(vector<vector<int>> tab, Personnage& p) {
         SetConsoleTextAttribute(console, 15);
         cout << endl;
     }
+    cout << "Nombre de bombe :  " << bombe << endl; 
 }
 void showMaze(vector<vector<int>> tab) {
     system("cls");
@@ -175,13 +178,21 @@ void brouillard(vector<vector<int>>& tab, Personnage& p, int maze_size) {
         }
     }
 }
-void move(vector<vector<int>>& tab, Personnage& p, int maze_size) {
+void move(vector<vector<int>>& tab, Personnage& p, int maze_size,int& bombe) {
 
     int c, ex;
     c = _getch();
     if (c && c != 224)
     {
-        cout << endl << "Not arrow: " << (char)c << endl;
+        if (tab[p.getY()][p.getX() + 1] == 1) {
+
+            if (bombe >= 1) {
+                tab[p.getY()][p.getX() + 1] = 0;
+                bombe -= 1;
+            }
+        }
+
+
     }
     else {
         switch ((ex = _getch()))
@@ -231,6 +242,7 @@ int main() {
     int maze_size = 31;
     int nbEtage = 0;
     int nbFloorDo = 0;
+    int bombe = 10;
 
     Personnage player(100, 1, 1);
 
@@ -294,7 +306,7 @@ int main() {
             break;
         }
 
- // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
+     // Création des collonnes de mon labyrinthe (une totalement en mur (wall) et l'autre a moitier mur et moiter chemin (line)
     for (int i = 0; i < maze_size; i++) {
         wall.push_back(-1);
 
@@ -390,7 +402,7 @@ int main() {
         }
 
         // on montre notre tableau grace a la fonction pour faire au file des boucle une sorte d'animation de création de labyrinthe mais aussi pour pouvoir débug
-       // showMaze(tab);
+        // showMaze(tab);
 
     }
 
@@ -446,7 +458,7 @@ int main() {
     int tour = 10000;
     while (player.getPoints() > 0 && tab[player.getY()][player.getX()] != 5) {
         brouillard(tab, player, maze_size);
-        showTab(tab, player);
+        showTab(tab, player,bombe);
         cout << player;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
 
@@ -475,7 +487,7 @@ int main() {
             cout << player;
             tab[player.getY()][player.getX()] = 0;
         }
-        move(tab, player, maze_size);
+        move(tab, player, maze_size, bombe);
         if (tab[player.getY()][player.getX()] == 4) {
             system("cls");
 
@@ -566,7 +578,7 @@ int main() {
                 }
 
                 // on montre notre tableau grace a la fonction pour faire au file des boucle une sorte d'animation de création de labyrinthe mais aussi pour pouvoir débug
-               // showMaze(tab);
+                // showMaze(tab);
 
             }
 
@@ -779,7 +791,7 @@ int main() {
         //Events
         int nb_event = 0;
 
-        while (nb_event != 0) {
+        while (nb_event != 20) {
             int y = rand() % maze_size;
             int x = rand() % maze_size;
             if (tab[y][x] == 40) {
@@ -796,7 +808,7 @@ int main() {
         int tour = 10000;
         while (player.getPoints() > 0) {
             brouillard(tab, player, maze_size);
-            showTab(tab, player);
+            showTab(tab, player,bombe);
             cout << player;
             if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
 
@@ -825,7 +837,7 @@ int main() {
                 cout << player;
                 tab[player.getY()][player.getX()] = 0;
             }
-            move(tab, player, maze_size);
+            move(tab, player, maze_size, bombe);
             if (tab[player.getY()][player.getX()] == 4) {
                 system("cls");
 
@@ -954,7 +966,7 @@ int main() {
                 //Events
                 int nb_event = 0;
 
-                while (nb_event != 0) {
+                while (nb_event != 20) {
                     int y = rand() % maze_size;
                     int x = rand() % maze_size;
                     if (tab[y][x] == 40) {
