@@ -6,6 +6,7 @@
 #include "Ui.h"
 #include "Quizz.h"
 #include "Shifumi.h"
+#include "Inventaire.h"
 
 #define KEY_UP 72
 #define KEY_DOWN 80
@@ -255,7 +256,9 @@ int main() {
     Quizz q(15);
     Shifumi s(15);
     Ui ui;
+    Inventaire inv(9);
 
+    inv.tabInventaire();
     
     
     

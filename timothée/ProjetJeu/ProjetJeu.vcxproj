@@ -140,6 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Inventaire.cpp" />
     <ClCompile Include="JustePrix.cpp" />
     <ClCompile Include="Morpion.cpp" />
     <ClCompile Include="Pendu.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Ui.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Inventaire.h" />
     <ClInclude Include="JustePrix.h" />
     <ClInclude Include="Morpion.h" />
     <ClInclude Include="Pendu.h" />
