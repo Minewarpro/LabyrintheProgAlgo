@@ -1,3 +1,6 @@
-﻿  Source.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Source.cpp(261,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+﻿  JustePrix.cpp
+D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\JustePrix.cpp(17,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Source.cpp
+D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Source.cpp(263,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Génération de code en cours...
   ProjetJeu.vcxproj -> D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\x64\Debug\ProjetJeu.exe

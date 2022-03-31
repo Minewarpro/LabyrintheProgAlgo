@@ -50,8 +50,16 @@ void Personnage::attack(Personnage& ennemy)
 	cout << "vous avez perdu " << getPoints() << " de vie" << endl << endl;
 }
 
+void Personnage::drop()
+{
+
+}
+
 ostream& operator<<(ostream& os, Personnage& p)
 {
-	os << "Vous avez " << p.getPoints() << " points de vie" << endl << endl;
+	os << "----------------" << endl;
+	os << "     Player" << endl;
+	os << "----------------" << endl;
+	os << "PV : " << p.getPoints() << endl << endl;
 	return os;
 }

@@ -26,6 +26,8 @@ public:
 
 	void potion(int pv, Personnage& p);
 
+	void bombe(vector<vector<int>>& tab, Personnage& p);
+
 	void showInventaire();
 
 	vector <int> tabInventaire();

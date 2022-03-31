@@ -49,9 +49,27 @@ void Inventaire::potion(int pv, Personnage& p)
 {
 	cout << "Vous utilisez une potion, vous avez récupéré " << pv << "points de vie" << endl;
 	p.setPoints(p.getPoints() + pv);
-	if (p.getPoints() < 100) {
+	if (p.getPoints() > 100) {
 		p.setPoints(100);
+	} 
+	setNbPotion(getNbPotion() - 1);
+}
+
+void Inventaire::bombe(vector<vector<int>>& tab, Personnage& p) {
+
+	if (tab[p.getY() - 1][p.getX()] == 1) {
+		tab[p.getY() - 1][p.getX()] = 0;
 	}
+	if (tab[p.getY() + 1][p.getX()] == 1) {
+		tab[p.getY() + 1][p.getX()] = 0;
+	}
+	if (tab[p.getY()][p.getX() - 1] == 1) {
+		tab[p.getY()][p.getX() - 1] = 0;
+	}
+	if (tab[p.getY()][p.getX() + 1] == 1) {
+		tab[p.getY()][p.getX() + 1] = 0;
+	}
+	setNbBombe(getNbBombe() - 1);
 }
 
 void Inventaire::showInventaire()
@@ -78,6 +96,9 @@ void Inventaire::showInventaire()
 			break;
 		}
 	}
+	cout << endl;
+	cout << "Appuyez A pour utiliser une potion" << endl;
+	cout << "Appuyez B pour utiliser une bombe" << endl;
 }
 
 vector <int> Inventaire::tabInventaire()

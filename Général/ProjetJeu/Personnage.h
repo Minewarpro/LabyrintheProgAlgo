@@ -40,6 +40,8 @@ public:
 	//Methods Gameplay
 	void attack(Personnage& ennemy);
 
+	virtual void drop();
+
 	friend ostream& operator<<(ostream& os, Personnage& p);
 };
 

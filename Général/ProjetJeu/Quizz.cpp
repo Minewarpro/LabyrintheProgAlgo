@@ -190,7 +190,7 @@ void Quizz::question2(bool& verif)
 	case 4:
 		cout << "BG";
 		verif = true;
-
+		cout << verif;
 		break;
 	}
 
@@ -237,6 +237,7 @@ void Quizz::question3(bool& verif)
 	case 3:
 		cout << "Oui ce mec est un dieu vivant, Bravo !";
 		verif = true;
+		cout << verif;
 		break;
 	case 4:
 		cout << "il est dépacé depuis longtemps";
@@ -287,6 +288,7 @@ void Quizz::question4(bool& verif)
 	case 3:
 		cout << "Oui, Bravo !";
 		verif = true;
+		cout << verif;
 		break;
 	case 4:
 		cout << "bah non !";
@@ -333,6 +335,7 @@ void Quizz::question5(bool& verif)
 	case 2:
 		cout << "tout a fait";
 		verif = true;
+		cout << verif;
 		break;
 	case 3:
 		cout << "alors peut etre.... en fait non !";
