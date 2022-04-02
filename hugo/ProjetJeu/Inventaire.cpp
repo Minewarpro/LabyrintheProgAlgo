@@ -4,8 +4,8 @@
 Inventaire::Inventaire()
 {
 	setPlace(2);
-	setNbBombe(3);
-	setNbPotion(1);
+	setNbBombe(0);
+	setNbPotion(0);
 }
 
 Inventaire::Inventaire(int p, int po, int b)
@@ -122,7 +122,6 @@ vector <int> Inventaire::tabInventaire()
 
 	return tab;
 }
-
 
 ostream& operator<<(ostream& os, Inventaire& i)
 {

@@ -1,4 +1,5 @@
 #include "Personnage.h"
+#include "Inventaire.h"
 
 Personnage::Personnage()
 {
@@ -50,10 +51,8 @@ void Personnage::attack(Personnage& ennemy)
 	cout << "vous avez perdu " << getPoints() << " de vie" << endl << endl;
 }
 
-void Personnage::drop()
-{
 
-}
+
 
 ostream& operator<<(ostream& os, Personnage& p)
 {

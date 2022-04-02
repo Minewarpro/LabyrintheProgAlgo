@@ -1,5 +1,7 @@
 #pragma once
 #include "Personnage.h"
+#include "Inventaire.h"
+
 class Quizz :
     public Personnage
 {
@@ -8,7 +10,8 @@ public:
     Quizz(int p);
 
 
-    void playQuizz(Personnage& p);
+    void playQuizz(Personnage& p, Inventaire& I);
+    void getObjet(Inventaire& I);
     void question(bool& verif);
     void question2(bool& verif);
     void question3(bool& verif);

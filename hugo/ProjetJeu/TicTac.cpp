@@ -10,8 +10,29 @@ TicTac::TicTac(int p)
 	setPoints(p);
 }
 
+void TicTac::getObjet(Inventaire& I)
+{
+	int random = rand() % 3;
+	int randomObject = rand() % 2;
 
-void TicTac::playTictac(Personnage& p)
+	if (random == 1) {
+		if (I.getNbBombe() + I.getNbPotion() < I.getPlace())
+		{
+			switch (randomObject)
+			{
+			case 0:
+				I.setNbPotion(I.getNbPotion() + 1);
+				break;
+			case 1:
+				I.setNbBombe(I.getNbBombe() + 1);
+				break;
+			}
+		}
+	}
+}
+
+
+void TicTac::playTictac(Personnage& p, Inventaire& I)
 {
 
 	clock_t timerInit;
@@ -62,6 +83,7 @@ void TicTac::playTictac(Personnage& p)
 		cout << "-----------------" << endl;
 		cout << "Vous avez gagne" << endl;
 		cout << "-----------------" << endl;
+		getObjet(I);
 	}
 	else {
 		cout << "-----------------" << endl;

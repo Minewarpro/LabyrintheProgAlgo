@@ -4,7 +4,7 @@
 
 
 
-class Inventaire
+class Inventaire 
 {
 protected:
 	int place;

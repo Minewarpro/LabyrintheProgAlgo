@@ -9,7 +9,7 @@ Remember::Remember(int p)
 	setPoints(p);
 }
 
-void Remember::playRemember(Personnage& p)
+void Remember::playRemember(Personnage& p, Inventaire& I)
 {
 	int random1 = rand() % 3000 + 5000;
 	int random2 = rand() % 400 + 400;
@@ -51,10 +51,32 @@ void Remember::playRemember(Personnage& p)
 	cin >> guess;
 	if (guess == random) {
 		cout << "Vous avez gagne !" << endl;
+		getObjet(I);
 	}
 	else {
 		cout << "Vous avez perdu !" << endl;
 		attack(p);
+	}
+}
+
+void Remember::getObjet(Inventaire& I)
+{
+	int random = rand() % 3;
+	int randomObject = rand() % 2;
+
+	if (random == 1) {
+		if (I.getNbBombe() + I.getNbPotion() < I.getPlace())
+		{
+			switch (randomObject)
+			{
+			case 0:
+				I.setNbPotion(I.getNbPotion() + 1);
+				break;
+			case 1:
+				I.setNbBombe(I.getNbBombe() + 1);
+				break;
+			}
+		}
 	}
 }
 

@@ -204,28 +204,28 @@ void showColor() {
         cout << m << " " << endl;
     }
 }
-void event( Morpion& m, TicTac& t, JustePrix& j, Remember& r, Pendu& p, Quizz& q, Shifumi& s, Personnage& player) {
+void event( Morpion& m, TicTac& t, JustePrix& j, Remember& r, Pendu& p, Quizz& q, Shifumi& s, Personnage& player, Inventaire& inv) {
     int aleaMiniJeu = rand() % 7;
     if (aleaMiniJeu == 0) { //Morpion
-        m.playMorpion(player);
+        m.playMorpion(player, inv);
     }
     else if (aleaMiniJeu == 1) {  // TicTac
-        t.playTictac(player);
+        t.playTictac(player, inv);
     }
     else if (aleaMiniJeu == 2) { // JustePrix
-        j.playJustePrix(player);
+        j.playJustePrix(player, inv);
     }
     else if (aleaMiniJeu == 3) { // Remember
-        r.playRemember(player);
+        r.playRemember(player, inv);
     }
     else if (aleaMiniJeu == 4) { // Remember
-        p.playPendu(player);
+        p.playPendu(player, inv);
     }
     else if (aleaMiniJeu == 5) { // Remember
-        q.playQuizz(player);
+        q.playQuizz(player, inv);
     }
     else if (aleaMiniJeu == 6) { // Remember
-        s.playShifumi(player);
+        s.playShifumi(player, inv);
     }
 }
 void showTab(vector<vector<int>> tab, Personnage& p, int bombe) {
@@ -473,14 +473,14 @@ int main() {
     int nbEtage = 0;
     int nbFloorDo = 0;
     int bombe = 0;
-    int nbBombe = 3;
-    int nbPotion = 2;
+    int nbBombe = 0;
+    int nbPotion = 0;
     int playerAtk = 40;
     int BossLifepoint = 200;
     
 
 
-    Personnage player(50, 1, 1);
+    Personnage player(100, 1, 1);
 
     //Déclaration Events
     Morpion m(15);
@@ -566,7 +566,7 @@ int main() {
         inv.showInventaire();
         cout << nbFloorDo;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
-            event(m,t,j,r,p,q,s,player);
+            event(m,t,j,r,p,q,s,player, inv);
             cout << player;
             tab[player.getY()][player.getX()] = 0;
         }
@@ -621,7 +621,7 @@ int main() {
                         {
                             cout << "Le boss vous attaque gagné pour blocker les dégat";
                             Sleep(500);
-                            event(m, t, j, r, p, q, s, player);
+                            event(m, t, j, r, p, q, s, player, inv);
 
                         }
                     }

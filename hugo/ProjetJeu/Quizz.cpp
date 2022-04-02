@@ -11,7 +11,7 @@ Quizz::Quizz(int p)
 	setPoints(p);
 }
 
-void Quizz::playQuizz(Personnage& p)
+void Quizz::playQuizz(Personnage& p, Inventaire& I)
 {
 	int questionC = 0;
 	int BeebR = 0;
@@ -83,11 +83,32 @@ void Quizz::playQuizz(Personnage& p)
 	if (verif == true)
 	{
 		cout << "gg ta win";
-
+		getObjet(I);
 	}
 	else {
 		cout << "perd une vie";
 		attack(p);
+	}
+}
+
+void Quizz::getObjet(Inventaire& I)
+{
+	int random = rand() % 3;
+	int randomObject = rand() % 2;
+
+	if (random == 1) {
+		if (I.getNbBombe() + I.getNbPotion() < I.getPlace())
+		{
+			switch (randomObject)
+			{
+			case 0:
+				I.setNbPotion(I.getNbPotion() + 1);
+				break;
+			case 1:
+				I.setNbBombe(I.getNbBombe() + 1);
+				break;
+			}
+		}
 	}
 }
 

@@ -1,6 +1,26 @@
 #include "Morpion.h"
 
 
+void Morpion::getObjet(Inventaire& I)
+{
+    int random = rand() % 3;
+    int randomObject = rand() % 2;
+
+    if (random == 1) {
+        if (I.getNbBombe() + I.getNbPotion() < I.getPlace())
+        {
+            switch (randomObject)
+            {
+            case 0:
+                I.setNbPotion(I.getNbPotion() + 1);
+                break;
+            case 1:
+                I.setNbBombe(I.getNbBombe() + 1);
+                break;
+            }
+        }
+    }
+}
 
 Morpion::Morpion()
 {
@@ -111,7 +131,7 @@ int Morpion::testWin(vector<vector<int>>& tab)
     }
 }
 
-void Morpion::playMorpion(Personnage& p)
+void Morpion::playMorpion(Personnage& p, Inventaire& I)
 {
     vector<vector<int>> tab = tabMorpion(3, 3);
     int ligne, colonne;
@@ -130,13 +150,6 @@ void Morpion::playMorpion(Personnage& p)
             cout << "Saisie eronnee" << endl;
             cout << "Quelle ligne ?" << endl;
             cin >> ligne;
-            /*if (cin.fail())  // Ne marche pas, à réparer.
-            {
-                cout << "Vous n'avez pas rentrez un nombre" << endl;
-                cin.clear();
-                cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                break;
-            }*/
             cout << "Quelle colonne ?" << endl;
             cin >> colonne;
         }
@@ -179,6 +192,7 @@ void Morpion::playMorpion(Personnage& p)
     }
     if (testWin(tab) == 1) {
         cout << "Vous avez gagne" << endl;
+        getObjet(I);
     }
     else {
         cout << "Vous avez Perdu" << endl;

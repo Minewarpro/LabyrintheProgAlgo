@@ -1,6 +1,7 @@
 #pragma once
-#include <iostream>
+
 #include <windows.h>
+#include <iostream>
 #include <time.h>
 #include <vector>
 #include <stdio.h>
@@ -11,6 +12,7 @@
 #include<string>
 #include <cstdlib>
 #include<mmsystem.h>
+
 
 using namespace std;
 
@@ -40,7 +42,7 @@ public:
 	//Methods Gameplay
 	void attack(Personnage& ennemy);
 
-	virtual void drop();
+	
 
 	friend ostream& operator<<(ostream& os, Personnage& p);
 };

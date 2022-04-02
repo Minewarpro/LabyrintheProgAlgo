@@ -12,7 +12,7 @@ JustePrix::JustePrix(int p)
 	setPoints(p);
 }
 
-void JustePrix::playJustePrix(Personnage& p)
+void JustePrix::playJustePrix(Personnage& p, Inventaire& I)
 {
 	srand(time(0));
 
@@ -49,11 +49,33 @@ void JustePrix::playJustePrix(Personnage& p)
 	}
 	if (guess == random) {
 		cout << "Vous avez gagne !" << endl;
+		getObjet(I);
 	}
 	else {
 		cout << "Vous avez perdu !" << endl;
 		attack(p);
 		
+	}
+}
+
+void JustePrix::getObjet(Inventaire& I)
+{
+	int random = rand () % 3;
+	int randomObject = rand() % 2;
+
+	if (random == 1) {
+		if (I.getNbBombe() + I.getNbPotion() < I.getPlace())
+		{
+			switch (randomObject)
+			{
+			case 0:
+				I.setNbPotion(I.getNbPotion() + 1);
+				break;
+			case 1:
+				I.setNbBombe(I.getNbBombe() + 1);
+				break;
+			}
+		}
 	}
 }
 

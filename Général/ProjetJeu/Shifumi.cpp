@@ -9,7 +9,28 @@ Shifumi::Shifumi(int p)
 	setPoints(p);
 }
 
-void Shifumi::playShifumi(Personnage& p)
+void Shifumi::getObjet(Inventaire& I)
+{
+	int random = rand() % 3;
+	int randomObject = rand() % 2;
+
+	if (random == 1) {
+		if (I.getNbBombe() + I.getNbPotion() < I.getPlace())
+		{
+			switch (randomObject)
+			{
+			case 0:
+				I.setNbPotion(I.getNbPotion() + 1);
+				break;
+			case 1:
+				I.setNbBombe(I.getNbBombe() + 1);
+				break;
+			}
+		}
+	}
+}
+
+void Shifumi::playShifumi(Personnage& p, Inventaire& I)
 {
 
 	int choix;
@@ -97,6 +118,7 @@ void Shifumi::playShifumi(Personnage& p)
 			cout << "------------------" << endl;
 			cout << "Vous avez gagne GG" << endl;
 			cout << "------------------" << endl;
+			getObjet(I);
 		}
 		else {
 			cout << "-----------------" << endl;
