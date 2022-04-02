@@ -123,7 +123,6 @@ vector <int> Inventaire::tabInventaire()
 	return tab;
 }
 
-
 ostream& operator<<(ostream& os, Inventaire& i)
 {
 	os << "Vous avez " << i.getPlace() << " " << endl << endl;

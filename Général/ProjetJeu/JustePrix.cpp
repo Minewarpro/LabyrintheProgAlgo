@@ -53,6 +53,7 @@ void JustePrix::playJustePrix(Personnage& p)
 	else {
 		cout << "Vous avez perdu !" << endl;
 		attack(p);
+		
 	}
 }
 
