@@ -149,7 +149,7 @@ void Pendu::playPendu(Personnage& p)
 
     // ****
     int essais = 8;
-    char Devine ;
+    char Devine;
     bool DevineCorrect = false;
     string Word; //le mot qu'on doit deviner
     string WordList[277]; // tableau de chaine de 100 string (jsp vraiment questceque c'est mais trkl)

@@ -11,8 +11,8 @@ bool Ui::Death() {
 
 	int n;
 	int c;
-	
-    PlaySound(TEXT("Midna.wav"), NULL, SND_ASYNC);
+
+	PlaySound(TEXT("Midna.wav"), NULL, SND_ASYNC);
 	string line;
 	ifstream myFile("died.txt");
 	if (myFile.is_open())
@@ -23,7 +23,7 @@ bool Ui::Death() {
 		}
 		myFile.close();
 	}
-	
+
 	cout << "Appuyez sur n'importe quel touche pour finir le jeu !";
 
 
@@ -49,11 +49,11 @@ bool Ui::start()
 		}
 		myFile.close();
 	}
-	
-	cout << "Appuyez sur Alt + Enter pour mettre en pleine écran !" << endl;
+
+	cout << "Appuyez sur Alt + Enter pour mettre en pleine écran !" << endl << endl;
 	cout << "Appuyez sur n'importe quel touche pour lancer le jeu !";
 
-	
+
 	c = _getch();
 	if (c) {
 		return true;
@@ -110,7 +110,7 @@ int Ui::StartChoix()
 	cout << endl << endl;
 
 	cout << "      1.Classique mode";
-	Beep(300,100);
+	Beep(300, 100);
 	Sleep(1000);
 	Beep(300, 100);
 	cout << "                 2.Endless mode ";
@@ -123,11 +123,11 @@ int Ui::StartChoix()
 	{
 		cin >> choix;
 	}
-	
-	
-		
 
-return choix;
+
+
+
+	return choix;
 }
 
 int Ui::DicultyChoice()
@@ -139,7 +139,7 @@ int Ui::DicultyChoice()
 
 	system("cls");
 	cout << str;
-	
+
 	cout << endl << endl;
 
 	cout << "      1.Facile";
@@ -176,11 +176,11 @@ int Ui::CustomChoiceTaille()
 	cout << "Taille du carré du labyrinthe ( entre 10 et 100 ) : ";
 	cin >> taille;
 	cout << endl;
-	while (taille <= 10 && taille >=101) {
+	while (taille <= 10 && taille >= 101) {
 		cout << "Taille Invalide";
 		cin >> taille;
 	}
-	
+
 	return taille;
 }
 

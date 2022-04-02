@@ -47,12 +47,13 @@ void JustePrix::playJustePrix(Personnage& p)
 
 		moves++;
 	}
-	if (moves <= 10) {
+	if (guess == random) {
 		cout << "Vous avez gagne !" << endl;
 	}
 	else {
 		cout << "Vous avez perdu !" << endl;
 		attack(p);
+		
 	}
 }
 

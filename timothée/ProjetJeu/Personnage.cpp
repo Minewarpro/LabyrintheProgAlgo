@@ -1,4 +1,5 @@
 #include "Personnage.h"
+#include "Inventaire.h"
 
 Personnage::Personnage()
 {
@@ -52,6 +53,9 @@ void Personnage::attack(Personnage& ennemy)
 
 ostream& operator<<(ostream& os, Personnage& p)
 {
-	os << "Vous avez " << p.getPoints() << " points de vie" << endl << endl;
+	os << "----------------" << endl;
+	os << "     Player" << endl;
+	os << "----------------" << endl;
+	os << "PV : " << p.getPoints() << endl << endl;
 	return os;
 }
