@@ -1,16 +1,4 @@
-﻿  JustePrix.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\JustePrix.cpp(17,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Morpion.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Morpion.cpp(182,29): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
-  Pendu.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Pendu.cpp(158,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Quizz.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Quizz.cpp(18,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Quizz.cpp(27,6): warning C4101: 'r' : variable locale non référencée
-  Remember.cpp
-  Shifumi.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\Shifumi.cpp(41,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  TicTac.cpp
-D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\TicTac.cpp(46,12): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-  Génération de code en cours...
-  ProjetJeu.vcxproj -> D:\Users\hugor\Documents\GitHub\LabyrintheProgAlgo\hugo\ProjetJeu\x64\Debug\ProjetJeu.exe
+﻿  Source.cpp
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Source.cpp(505,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Source.cpp(651,47): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  ProjetJeu.vcxproj -> D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe

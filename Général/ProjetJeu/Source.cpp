@@ -16,6 +16,16 @@
 #define KEY_A 97
 #define KEY_B 98
 
+void showColor() {
+    HANDLE console;
+    int m;
+    console = GetStdHandle(STD_OUTPUT_HANDLE);
+    for (m = 1; m < 255; m++) {
+        SetConsoleTextAttribute(console, m);
+        cout << m << " " << endl;
+    }
+}
+
 void lab(vector<vector<int>>& tab, int maze_size, int nbEtage, int nbFloorDo, int nbEvent, Personnage& p) {
     system("cls");
 
@@ -195,15 +205,6 @@ void lab(vector<vector<int>>& tab, int maze_size, int nbEtage, int nbFloorDo, in
     p.setX(1);
     p.setY(1);
 }        
-void showColor() {
-    HANDLE console;
-    int m;
-    console = GetStdHandle(STD_OUTPUT_HANDLE);
-    for (m = 1; m < 255; m++) {
-        SetConsoleTextAttribute(console, m);
-        cout << m << " " << endl;
-    }
-}
 void event( Morpion& m, TicTac& t, JustePrix& j, Remember& r, Pendu& p, Quizz& q, Shifumi& s, Personnage& player, Inventaire& inv) {
     int aleaMiniJeu = rand() % 7;
     if (aleaMiniJeu == 0) { //Morpion
@@ -458,12 +459,14 @@ void move(vector<vector<int>>& tab, Personnage& p,Inventaire& inv,int maze_size)
 }
 int main() {
 
+    
+
     PlaySound(TEXT("sod.wav"), NULL, SND_FILENAME | SND_ASYNC);
 
 
     locale::global(locale{ "" });
     SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
-    srand(time(NULL));
+    
     vector<vector<int>> tab;
 
     int nbEvent = 20;
@@ -497,7 +500,17 @@ int main() {
 
     ui.start();
 
-    if (ui.StartChoix() == 1) {
+    int seed = 0;
+
+    srand(time(NULL));
+
+    seed = rand() % 100000000;
+
+    switch (ui.StartChoix())
+    {
+    default:
+        break;
+    case 1 :
         switch (ui.DicultyChoice())
         {
         case 1:
@@ -542,15 +555,20 @@ int main() {
             break;
         }
 
-        //showColor();
-
-      
-    }
-    else {
+        break;
+    case 2:
         maze_size = 21;
         nbEvent = 0;
         nbEtage = -1;
+
+        break;
+    case 3:
+        seed = ui.SeedChoice(); 
+        break;
     }
+
+    srand(seed);
+    
 
     lab(tab, maze_size, nbEtage, nbFloorDo, nbEvent, player);
 
@@ -564,7 +582,9 @@ int main() {
         showTab(tab, player, bombe);
         cout << player;
         inv.showInventaire();
-        cout << nbFloorDo;
+        cout << endl;
+        cout << "Etage : "<<nbFloorDo<<endl;
+        cout << "Seed du labyrinthe : " << seed << endl;
         if (tab[player.getY()][player.getX()] == 3) { // si le joueur touche un event
             event(m,t,j,r,p,q,s,player, inv);
             cout << player;

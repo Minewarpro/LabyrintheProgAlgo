@@ -14,4 +14,5 @@ public:
 	int CustomChoiceTaille();
 	int CustomChoiceEvent();
 	int CustomChoiceEtage();
+	int SeedChoice();
 };

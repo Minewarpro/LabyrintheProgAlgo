@@ -99,7 +99,7 @@ int Ui::StartChoix()
 	int j = 100;
 
 	system("cls");
-	cout << "                ";
+	cout << "                                 ";
 	for (int i = 0; i < str.size(); i++) {
 		cout << " ";
 		cout << str[i];
@@ -115,11 +115,12 @@ int Ui::StartChoix()
 	Beep(300, 100);
 	cout << "                 2.Endless mode ";
 	Sleep(1000);
-
+	Beep(300, 100);
+	cout << "                 3.Seed mode ";
 	cout << endl;
 
 
-	while (choix != 1 && choix != 2)
+	while (choix != 1 && choix != 2 && choix != 3)
 	{
 		cin >> choix;
 	}
@@ -217,5 +218,24 @@ int Ui::CustomChoiceEtage()
 	}
 	system("cls");
 	return etage;
+}
+
+int Ui::SeedChoice()
+{
+	int SeedC;
+	string str = "                                     Choix de la Seed : ";
+	int BeebR = 0;
+	int j = 100;
+
+	system("cls");
+	cout << str;
+
+	cout << endl << endl;
+
+	cout << "rentrer votre seed: ";
+	cin >> SeedC;
+
+	return SeedC;
+
 }
 
