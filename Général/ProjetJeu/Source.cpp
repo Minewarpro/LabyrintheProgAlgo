@@ -303,6 +303,77 @@ void showTab(vector<vector<int>> tab, Personnage& p, int bombe) {
         cout << endl;
     }
 }
+void Save(vector<vector<int>>& tab, int maze_size, int nbEtage, int nbFloorDo, int nbEvent, Personnage& p, Inventaire& inv) {
+    ofstream savelab;
+    ofstream saveSize;
+    ofstream savePotion;
+    ofstream saveBombe;
+    ofstream saveEtage;
+    ofstream savePv;
+
+    savelab.open("save/save_lab.txt");
+    if (savelab) {
+        for (int i = 0; i < tab.size(); i++) {
+            for (int j = 0; j < tab[i].size(); j++) {
+
+                savelab << tab[i][j] << " ";
+
+            }
+            savelab << endl << endl;
+        }
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+
+    saveSize.open("save/save_taille.txt");
+    if (saveSize) {
+        saveSize << maze_size << " ";
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+
+    savePotion.open("save/save_potion.txt");
+    if (savePotion) {
+        savePotion << inv.getNbPotion() << " ";
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    saveBombe.open("save/save_bombe.txt");
+    if (saveBombe) {
+        saveBombe << inv.getNbBombe() << " ";
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    saveEtage.open("save/save_etage.txt");
+    if (saveEtage) {
+        saveEtage << nbFloorDo << " ";
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    savePv.open("save/save_pv.txt");
+    if (savePv) {
+        savePv << p.getPoints() << " ";
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+}
 void showMaze(vector<vector<int>> tab) {
     system("cls");
     HANDLE console;
@@ -399,7 +470,111 @@ void brouillard(vector<vector<int>>& tab, Personnage& p, int maze_size) {
         }
     }
 }
-void move(vector<vector<int>>& tab, Personnage& p,Inventaire& inv,int maze_size) {
+void Load(vector<vector<int>>& tab, int& maze_size, Personnage& p, Inventaire& inv, int& nbFloorDo) {
+    tab.clear();
+
+    ifstream maze_s;
+
+    ifstream maze_e;
+
+    ifstream load;
+    int mot;
+    vector<int> ligne;
+
+    ifstream Pv;
+    int loadpv = 0;
+
+    ifstream bombe;
+    int loadb = 0;
+
+    ifstream potion;
+    int loadp = 0;
+
+
+
+    maze_s.open("save/save_taille.txt");
+    if (maze_s) {
+
+        maze_s >> maze_size;
+
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    maze_e.open("save/save_etage.txt");
+    if (maze_e) {
+
+        maze_e >> nbFloorDo;
+
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    load.open("save/save_lab.txt");
+    if (load) {
+
+        for (int i = 0; i < maze_size; i++) {
+            for (int j = 0; j < maze_size; j++) {
+
+                load >> mot;
+
+                ligne.push_back(mot);
+
+            }
+
+            tab.push_back(ligne);
+            ligne.clear();
+        }
+
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    Pv.open("save/save_pv.txt");
+    if (Pv) {
+        Pv >> loadpv;
+
+        p.setPoints(loadpv);
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    bombe.open("save/save_bombe.txt");
+    if (bombe) {
+        bombe >> loadb;
+
+        inv.setNbBombe(loadb);
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    potion.open("save/save_potion.txt");
+    if (potion) {
+        potion >> loadp;
+
+        inv.setNbPotion(loadp);
+    }
+    else {
+        cout << "erreur";
+        Sleep(10000);
+    }
+
+    showMaze(tab);
+    Sleep(2000);
+    p.setX(1);
+    p.setY(1);
+}
+void move(vector<vector<int>>& tab, Personnage& p, Inventaire& inv, int maze_size, int nbEtage, int nbFloorDo, int nbEvent) {
 
     int c, ex;
     c = _getch();
@@ -440,11 +615,18 @@ void move(vector<vector<int>>& tab, Personnage& p,Inventaire& inv,int maze_size)
         switch (c) 
         {
         case KEY_A:
-            if (inv.getNbPotion() > 0) {
+            /*if (inv.getNbPotion() > 0) {
                 inv.potion(10, p);        
-            }
+            }*/
+
+            Save(tab, maze_size, nbEtage, nbFloorDo, nbEvent, p, inv);
+            cout << "sauvegarde..." << endl << "veulliez ne pas eteindre la console" << endl;
+            Sleep(10000);
+
             break;            
         case KEY_B:
+
+
             if (inv.getNbBombe() > 0) {
                 inv.bombe(tab, p);   
             }
@@ -469,7 +651,7 @@ int main() {
     vector<vector<int>> tab;
 
     int nbEvent = 20;
-
+    bool c = false;
     int block = 0;
     int maze_size = 31;
     int nbEtage = 0;
@@ -509,7 +691,7 @@ int main() {
     {
     default:
         break;
-    case 1 :
+    case 1:
         switch (ui.DicultyChoice())
         {
         case 1:
@@ -520,6 +702,9 @@ int main() {
             nbEvent = 7;
             nbEtage = 1;
 
+            inv.setNbBombe(2);
+            inv.setNbPotion(1);
+
             break;
         case 2:
             maze_size = 31;
@@ -528,8 +713,8 @@ int main() {
 
             break;
         case 3:
-            maze_size = 51;
-            nbEvent = 40;
+            maze_size = 41;
+            nbEvent = 35;
             nbEtage = 3;
 
             break;
@@ -556,20 +741,26 @@ int main() {
 
         break;
     case 2:
+        Load(tab, maze_size, player, inv, nbFloorDo);
+        c = true;
+        break;
+    case 3:
         maze_size = 21;
         nbEvent = 0;
         nbEtage = -1;
 
         break;
-    case 3:
-        seed = ui.SeedChoice(); 
+    case 4:
+        seed = ui.SeedChoice();
         break;
     }
 
     srand(seed);
     
-
-    lab(tab, maze_size, nbEtage, nbFloorDo, nbEvent, player);
+    if (c != true) {
+        lab(tab, maze_size, nbEtage, nbFloorDo, nbEvent, player);
+    }
+    
 
    
 
@@ -589,7 +780,7 @@ int main() {
             cout << player;
             tab[player.getY()][player.getX()] = 0;
         }
-        move(tab, player, inv, maze_size);
+        move(tab, player, inv, maze_size, nbEtage, nbFloorDo, nbEvent);
         
 
 
