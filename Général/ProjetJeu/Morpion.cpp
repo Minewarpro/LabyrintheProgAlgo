@@ -3,7 +3,7 @@
 
 void Morpion::getObjet(Inventaire& I)
 {
-    int random = rand() % 3;
+    int random = rand() % 2;
     int randomObject = rand() % 2;
 
     if (random == 1) {

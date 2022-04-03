@@ -25,8 +25,7 @@ void showColor() {
         cout << m << " " << endl;
     }
 }
-
-void lab(vector<vector<int>>& tab, int maze_size, int nbEtage, int nbFloorDo, int nbEvent, Personnage& p) {
+void lab(vector<vector<int>>& tab, int& maze_size, int& nbEtage, int& nbFloorDo, int& nbEvent, Personnage& p) {
     system("cls");
 
     vector <int> wall;
