@@ -15,6 +15,7 @@
 #define KEY_RIGHT 77
 #define KEY_A 97
 #define KEY_B 98
+#define KEY_S 115
 
 void showColor() {
     HANDLE console;
@@ -578,11 +579,11 @@ void move(vector<vector<int>>& tab, Personnage& p, Inventaire& inv, int maze_siz
 
     int c, ex;
     c = _getch();
-    if (c && c != 224 && c != 97 && c != 98)
+    if (c && c != 224 && c != 97 && c != 98 && c!=115)
     {
         
     }
-    else if (c && c != 97 && c != 98) {
+    else if (c && c != 97 && c != 98 && c!=115) {
         switch ((ex = _getch()))
         {
         case KEY_UP:
@@ -630,6 +631,9 @@ void move(vector<vector<int>>& tab, Personnage& p, Inventaire& inv, int maze_siz
             if (inv.getNbBombe() > 0) {
                 inv.bombe(tab, p);   
             }
+            break;
+        case KEY_S:
+            Save(tab, maze_size, nbEtage, nbFloorDo, nbEvent, p, inv);
             break;
         default:
             break;
