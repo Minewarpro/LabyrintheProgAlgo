@@ -616,24 +616,24 @@ void move(vector<vector<int>>& tab, Personnage& p, Inventaire& inv, int maze_siz
         switch (c) 
         {
         case KEY_A:
-            /*if (inv.getNbPotion() > 0) {
+            if (inv.getNbPotion() > 0) {
                 inv.potion(10, p);        
-            }*/
+            }
 
-            Save(tab, maze_size, nbEtage, nbFloorDo, nbEvent, p, inv);
-            cout << "sauvegarde..." << endl << "veulliez ne pas eteindre la console" << endl;
-            Sleep(10000);
+            
 
             break;            
         case KEY_B:
-
 
             if (inv.getNbBombe() > 0) {
                 inv.bombe(tab, p);   
             }
             break;
         case KEY_S:
+
             Save(tab, maze_size, nbEtage, nbFloorDo, nbEvent, p, inv);
+            cout << "sauvegarde..." << endl << "veulliez ne pas eteindre la console" << endl;
+            Sleep(10000);
             break;
         default:
             break;
