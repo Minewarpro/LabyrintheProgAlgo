@@ -1,4 +1,8 @@
-﻿  Source.cpp
-C:\Users\GAME1\Documents\miss udyr\LabyrintheProgAlgo\Général\ProjetJeu\Source.cpp(690,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
-C:\Users\GAME1\Documents\miss udyr\LabyrintheProgAlgo\Général\ProjetJeu\Source.cpp(846,47): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-  ProjetJeu.vcxproj -> C:\Users\GAME1\Documents\miss udyr\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe
+﻿  Ui.cpp
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(12,6): warning C4101: 'n' : variable locale non référencée
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(39,6): warning C4101: 'n' : variable locale non référencée
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(67,6): warning C4101: 'n' : variable locale non référencée
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(91): warning C4715: 'Ui::Win' : les chemins de contrôle ne retournent pas tous une valeur
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(35): warning C4715: 'Ui::Death' : les chemins de contrôle ne retournent pas tous une valeur
+D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(64): warning C4715: 'Ui::start' : les chemins de contrôle ne retournent pas tous une valeur
+  ProjetJeu.vcxproj -> D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe

@@ -5,7 +5,8 @@ class Ui
 {
 public:
 	Ui();
-
+	
+	int Startmenu();
 	bool start();
 	bool Death();
 	bool Win();

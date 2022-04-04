@@ -90,6 +90,43 @@ bool Ui::Win() {
 
 }
 
+int Ui::Startmenu()
+{
+
+	int choix = 0;
+	string str = "Choix de la partie";
+	int BeebR = 0;
+	int j = 100;
+
+	system("cls");
+	cout << "                                     ";
+	for (int i = 0; i < str.size(); i++) {
+		cout << " ";
+		cout << str[i];
+		BeebR = (rand() % 10) + 150;
+		Beep(BeebR, 300);
+		Sleep(0);
+	}
+	cout << endl << endl;
+
+	cout << "      1.Nouvelle partie";
+	Beep(300, 100);
+	Sleep(1000);
+	cout << "             2.Continue";
+	Beep(300, 100);
+	cout << endl << endl;
+
+	while (choix != 1 && choix != 2)
+	{
+		cin >> choix;
+	}
+
+
+
+
+	return choix;
+}
+
 int Ui::StartChoix()
 {
 
@@ -112,18 +149,15 @@ int Ui::StartChoix()
 	cout << "      1.Classique mode";
 	Beep(300, 100);
 	Sleep(1000);
-	cout << "             2.Continue";
 	Beep(300, 100);
+	cout << "                 2.Endless mode ";
 	Sleep(1000);
 	Beep(300, 100);
-	cout << "                 3.Endless mode ";
-	Sleep(1000);
-	Beep(300, 100);
-	cout << "                 4.Seed mode ";
+	cout << "                 3.Seed mode ";
 	cout << endl;
 
 
-	while (choix != 1 && choix != 2 && choix != 3 && choix != 4)
+	while (choix != 1 && choix != 2 && choix != 3)
 	{
 		cin >> choix;
 	}

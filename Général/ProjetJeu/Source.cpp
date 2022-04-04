@@ -690,56 +690,71 @@ int main() {
     srand(time(NULL));
 
     seed = rand() % 100000000;
-
-    switch (ui.StartChoix())
+    switch (ui.Startmenu())
     {
     default:
         break;
     case 1:
-        switch (ui.DicultyChoice())
+        switch (ui.StartChoix())
         {
+        default:
+            break;
         case 1:
+            switch (ui.DicultyChoice())
+            {
+            case 1:
 
 
 
-            maze_size = 21;
-            nbEvent = 7;
-            nbEtage = 1;
+                maze_size = 21;
+                nbEvent = 7;
+                nbEtage = 1;
 
-            inv.setNbBombe(2);
-            inv.setNbPotion(1);
+                inv.setNbBombe(2);
+                inv.setNbPotion(1);
+
+                break;
+            case 2:
+                maze_size = 31;
+                nbEvent = 20;
+                nbEtage = 2;
+
+                break;
+            case 3:
+                maze_size = 41;
+                nbEvent = 35;
+                nbEtage = 3;
+
+                break;
+            case 4:
+
+                maze_size = ui.CustomChoiceTaille();
+                if (maze_size % 2 == 0) {
+                    maze_size += 1;
+                }
+
+                nbEvent = ui.CustomChoiceEvent();
+                while (nbEvent >= maze_size * 2) {
+                    nbEvent -= 2;
+                }
+
+
+                nbEtage = ui.CustomChoiceEtage();
+
+                break;
+            default:
+                cout << "Erreur système";
+                break;
+            }
 
             break;
         case 2:
-            maze_size = 31;
-            nbEvent = 20;
-            nbEtage = 2;
-
+            maze_size = 21;
+            nbEvent = 0;
+            nbEtage = -1;
             break;
         case 3:
-            maze_size = 41;
-            nbEvent = 35;
-            nbEtage = 3;
-
-            break;
-        case 4:
-
-            maze_size = ui.CustomChoiceTaille();
-            if (maze_size % 2 == 0) {
-                maze_size += 1;
-            }
-
-            nbEvent = ui.CustomChoiceEvent();
-            while (nbEvent >= maze_size * 2) {
-                nbEvent -= 2;
-            }
-
-
-            nbEtage = ui.CustomChoiceEtage();
-
-            break;
-        default:
-            cout << "Erreur système";
+            seed = ui.SeedChoice();
             break;
         }
 
@@ -748,16 +763,9 @@ int main() {
         Load(tab, maze_size, player, inv, nbFloorDo);
         c = true;
         break;
-    case 3:
-        maze_size = 21;
-        nbEvent = 0;
-        nbEtage = -1;
-
-        break;
-    case 4:
-        seed = ui.SeedChoice();
-        break;
     }
+
+    
 
     srand(seed);
     
