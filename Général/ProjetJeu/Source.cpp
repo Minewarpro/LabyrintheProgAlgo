@@ -630,7 +630,7 @@ void move(vector<vector<int>>& tab, Personnage& p, Inventaire& inv, int maze_siz
             }
             break;
         case KEY_S:
-
+            system("cls");
             Save(tab, maze_size, nbEtage, nbFloorDo, nbEvent, p, inv);
             cout << "sauvegarde..." << endl << "veulliez ne pas eteindre la console" << endl;
             Sleep(10000);
@@ -776,6 +776,7 @@ int main() {
         showTab(tab, player, bombe);
         cout << player;
         inv.showInventaire();
+        cout << "Appuyez sur 'S' pour sauvegarder" << endl;
         cout << endl;
         cout << "Etage : "<<nbFloorDo<<endl;
         cout << "Seed du labyrinthe : " << seed << endl;

@@ -1,2 +1,0 @@
-F:\ETPA\Prog algo\ProjetJeu\x64\Debug\ProjetJeu.exe
-C:\Users\naomi\OneDrive\Bureau\GITHUB\prog gameplay\LabyrintheProgAlgo\Nao\ProjetJeu\x64\Debug\ProjetJeu.exe

@@ -1,1 +1,4 @@
-﻿  ProjetJeu.vcxproj -> D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe
+﻿  Source.cpp
+C:\Users\GAME1\Documents\miss udyr\LabyrintheProgAlgo\Général\ProjetJeu\Source.cpp(690,15): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\GAME1\Documents\miss udyr\LabyrintheProgAlgo\Général\ProjetJeu\Source.cpp(846,47): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  ProjetJeu.vcxproj -> C:\Users\GAME1\Documents\miss udyr\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe

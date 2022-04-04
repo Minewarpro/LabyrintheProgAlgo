@@ -97,8 +97,8 @@ void Inventaire::showInventaire()
 		}
 	}
 	cout << endl;
-	cout << "Appuyez A pour utiliser une potion" << endl;
-	cout << "Appuyez B pour utiliser une bombe" << endl;
+	cout << "Appuyez sur 'A' pour utiliser une potion" << endl;
+	cout << "Appuyez sur 'B' pour utiliser une bombe" << endl;
 }
 
 vector <int> Inventaire::tabInventaire()
