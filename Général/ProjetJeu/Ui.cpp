@@ -99,7 +99,7 @@ int Ui::Startmenu()
 	int j = 100;
 
 	system("cls");
-	cout << "                                     ";
+	cout << "       ";
 	for (int i = 0; i < str.size(); i++) {
 		cout << " ";
 		cout << str[i];
@@ -137,13 +137,8 @@ int Ui::StartChoix()
 
 	system("cls");
 	cout << "                                     ";
-	for (int i = 0; i < str.size(); i++) {
-		cout << " ";
-		cout << str[i];
-		BeebR = (rand() % 10) + 150;
-		Beep(BeebR, 300);
-		Sleep(0);
-	}
+	cout << str;
+	Beep(300, 100);
 	cout << endl << endl;
 
 	cout << "      1.Classique mode";

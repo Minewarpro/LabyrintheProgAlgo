@@ -1,8 +1,8 @@
 ﻿  Ui.cpp
-D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(12,6): warning C4101: 'n' : variable locale non référencée
-D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(39,6): warning C4101: 'n' : variable locale non référencée
-D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(67,6): warning C4101: 'n' : variable locale non référencée
-D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(91): warning C4715: 'Ui::Win' : les chemins de contrôle ne retournent pas tous une valeur
-D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(35): warning C4715: 'Ui::Death' : les chemins de contrôle ne retournent pas tous une valeur
-D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(64): warning C4715: 'Ui::start' : les chemins de contrôle ne retournent pas tous une valeur
-  ProjetJeu.vcxproj -> D:\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe
+C:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(12,6): warning C4101: 'n' : variable locale non référencée
+C:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(39,6): warning C4101: 'n' : variable locale non référencée
+C:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(67,6): warning C4101: 'n' : variable locale non référencée
+C:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(64): warning C4715: 'Ui::start' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(91): warning C4715: 'Ui::Win' : les chemins de contrôle ne retournent pas tous une valeur
+C:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\Ui.cpp(35): warning C4715: 'Ui::Death' : les chemins de contrôle ne retournent pas tous une valeur
+  ProjetJeu.vcxproj -> C:\Users\GAME1\Documents\GitHub\LabyrintheProgAlgo\Général\ProjetJeu\x64\Debug\ProjetJeu.exe
